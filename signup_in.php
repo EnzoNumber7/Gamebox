@@ -16,8 +16,8 @@
     <title>Gamebox Connexion/Inscritpion</title>
   </head>
 
-  <body class="black" id="">
-    <?php //require "php/component/menu.php"; ?>
+  <body class="main-color" id="">
+    <?php require "php/components/nav.php"; ?>
 
     <?php
     // Si l'email, le mot de passe ont bien été renseigné dans le form et si l'utilisateur a appuyer sur le bouton Connexion
@@ -44,7 +44,7 @@
     else
     {
     ?>
-            <h2>Bienvenue dans la page d'identification</h2>
+            <h1 class="center"><b>Connexion</b></h1>
 
             <?php
             if (isset($_SESSION['error'])){

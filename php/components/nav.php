@@ -30,7 +30,7 @@
     <div class="nav-wrapper main-color text-color">
       <a href="index.php" class="brand-logo"><iconify-icon class="icon-position padding" icon="mdi:progress-question" width="40" height="40"></iconify-icon> Gamebox</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down valign-wrapper">
-        <li><a class="connect-icon" href=""><iconify-icon class="icon-position" icon="material-symbols:frame-person" width="40" height="40"></iconify-icon></a></li>
+        <li><a class="connect-icon" href="signup_in.php"><iconify-icon class="icon-position" icon="material-symbols:frame-person" width="40" height="40"></iconify-icon></a></li>
       </ul>
     </div>
   </nav>

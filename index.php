@@ -23,7 +23,7 @@
   </head>
 
   <body>
-  <?php require "components/nav.php"; ?>
+  <?php require "php/components/nav.php"; ?>
 
   <div class="scorn valign-center text-color center">
     <h1 class="title-font">Box Halloween</h1>

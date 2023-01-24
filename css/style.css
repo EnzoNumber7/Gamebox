@@ -25,6 +25,15 @@ body{
     color: var(--text-color);
 }
 
+.inputBtn{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 140%;
+    width: 45%;
+    height: 45px;
+    border-radius: 25px;
+    background-color: #D9D9D9;
+}
 /* NavBar */
 .connect-icon{
     padding: 0;

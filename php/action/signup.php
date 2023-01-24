@@ -6,18 +6,18 @@ $email = $_POST['email'];
 
 if(empty($email) && empty($password)){
     $_SESSION['error'] = "Vous devez remplir tout les champs";
-    header('Location:signup_in.php');
+    header('Location:signinPage.php');
     exit();
 }
 
 else if(empty($password)){
     $_SESSION['error'] = "le mot de passe ne peut pas être vide";
-    header('Location:signup_in.php');
+    header('Location:signinPage.php');
     exit();
 }
 else if(empty($email)){
     $_SESSION['error'] = "L'email ne peut pas être vide";
-    header('Location:signup_in.php');
+    header('Location:signinPage.php');
     exit();
 }
 unset($_SESSION['error']);
@@ -29,7 +29,7 @@ $queries = $pre->fetchAll();
 foreach($queries as $user){
     if ($email == $user['email']){
         $_SESSION['error'] = "Il y a déjà un compte avec cette adresse email";
-        header('Location:signup_in.php');
+        header('Location:signinPage.php');
         exit();
     }
 }
@@ -45,7 +45,7 @@ $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 
 $_SESSION['success'] = "Vous avez été inscrit avec succès";
-header('Location:signup_in.php');
+header('Location:signinPage.php');
 exit();
 
 ?>

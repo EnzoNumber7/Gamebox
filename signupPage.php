@@ -66,7 +66,7 @@
     else
     {
     ?>
-            <h1 class="center"><b>Connexion</b></h1>
+            <h1 class="center"><b>CREE UN COMPTE</b></h1>
 
             <?php
             if (isset($_SESSION['error'])){
@@ -79,29 +79,15 @@
             <form class="center" method="post" action="signup_in.php">
                 <label>Addresse Email : </label><input name="email" type="text" /><br />
                 <label>Mot de Passe : </label><input name="password" type="password" />
-                <input type="submit" name="sign" value="Connexion" />
-                <input type="submit" name="sign" value="Inscription" />
+                <div>
+                  <input class="inputBtn" type="submit" name="sign" value="Inscription" />
+                </div>
             </form>
-            <div id="g_id_onload"
-              data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
-              data-context="signin"
-              data-ux_mode="popup"
-              data-login_uri="http://localhost/Gamebox/signup_in.php"
-              data-auto_prompt="false">
-          </div>
-
-          <div class="g_id_signin"
-              data-type="standard"
-              data-shape="pill"
-              data-theme="outline"
-              data-text="continue_with"
-              data-size="large"
-              data-logo_alignment="center"
-              data-witdh="400px">
-          </div>
+            <div class="center">
+              <a class="text-color" href="signupPage.php">Connexion</a>
+            </div>
     <?php
     }
     ?>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>  
     </body>
 </html>

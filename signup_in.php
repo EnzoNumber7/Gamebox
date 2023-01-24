@@ -60,6 +60,22 @@
                 <input type="submit" name="sign" value="Connexion" />
                 <input type="submit" name="sign" value="Inscription" />
             </form>
+            <div id="g_id_onload"
+                data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-login_uri="http://localhost/Gamebox/signup_in.php"
+                data-auto_prompt="false">
+            </div>
+
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="outline"
+                data-text="continue_with"
+                data-size="large"
+                data-logo_alignment="left">
+            </div>
     <?php
     }
     ?>

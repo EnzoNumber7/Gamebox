@@ -3,7 +3,7 @@
 session_start();
 
 $pdo = new PDO(
-    'mysql:host=localhost;dbname=grpa - 5 - gamebox;',
+    'mysql:host=localhost;dbname=grpa-5-gamebox;',
     'root',
     'root',
     array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')

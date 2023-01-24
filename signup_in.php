@@ -19,8 +19,6 @@
   <body class="black" id="">
     <?php //require "php/component/menu.php"; ?>
 
-
-
     <?php
     // Si l'email, le mot de passe ont bien été renseigné dans le form et si l'utilisateur a appuyer sur le bouton Connexion
     if ((isset($_POST['email'])) || (isset($_POST['password'])) || (isset($_POST["sign"]))){

@@ -1,0 +1,57 @@
+/* Variables */
+:root {
+    --main-font:'Montserrat', sans-serif;
+    --title-font:'Koulen', cursive;
+    --main-color:#131214;
+    --text-color:#D9D9D9;
+}
+
+/* Modifs générales */
+body{
+    font-family: var(--main-font);
+    color: var(--text-color);
+    background-color: var(--main-color);
+}
+
+.title-font{
+    font-family: var(--title-font);
+}
+
+.main-color{
+    background-color: var(--main-color);
+}
+
+.text-color{
+    color: var(--text-color);
+}
+
+/* NavBar */
+.connect-icon{
+    padding: 0;
+}
+
+/* Titre et Fond */
+.scorn{
+    background-image: url(../img/scorn.png);
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 500px;
+}
+
+h1{
+    font-size: 500%;
+}
+
+/* Notre Concept */
+p{
+    font-size: 150%;
+}
+
+h2{
+    font-size: 400%;
+}
+
+/* Contenu de la box */
+
+/* Footer */

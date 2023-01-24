@@ -20,6 +20,28 @@
     <?php require "php/components/nav.php"; ?>
 
     <?php
+    if (isset($_POST['credential'])){
+      if (!empty($_POST['credential'])){
+        if (empty($_COOKIE['g_csrf_token']) || empty($_POST['g_csrf_token']) || $_COOKIE['g_csrf_token'] != $_POST['g_csrf_token']){
+          $_SESSION['error'] = "ERROOOOOOOOOOOOOOR";
+          exit();
+        }
+      }
+      
+      $clientId = "696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com";
+      $client = new Google_Client(['client_id' => $clientId]);  // Specify the clientId of the app that accesses the backend
+      
+      $id_token = $_POST['credential'];
+      $user = $client->verifyIdToken($id_token);
+      if ($user) {
+        $_SESSION['user'] = $user;
+
+        // If request specified a G Suite domain:
+        //$domain = $payload['hd'];
+      } else {
+        $_SESSION['error'] = "FUCK";
+      }
+    }
     // Si l'email, le mot de passe ont bien été renseigné dans le form et si l'utilisateur a appuyer sur le bouton Connexion
     if ((isset($_POST['email'])) || (isset($_POST['password'])) || (isset($_POST["sign"]))){
       

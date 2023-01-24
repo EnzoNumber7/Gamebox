@@ -2,6 +2,8 @@
 // config php
 session_start();
 
+require 'vendor/autoload.php';
+
 $pdo = new PDO(
     'mysql:host=localhost;dbname=grpa-5-gamebox;',
     'root',

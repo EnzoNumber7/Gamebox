@@ -16,7 +16,7 @@
     <title>Gamebox Connexion/Inscritpion</title>
   </head>
 
-  <body class="" id="">
+  <body class="black" id="">
     <?php //require "php/component/menu.php"; ?>
 
 

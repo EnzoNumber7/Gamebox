@@ -60,9 +60,9 @@
                 <input type="submit" name="sign" value="Connexion" />
                 <input type="submit" name="sign" value="Inscription" />
             </form>
-        </body>
     <?php
     }
     ?>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>  
     </body>
 </html>

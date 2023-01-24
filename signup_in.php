@@ -57,7 +57,7 @@
     else if (isset($_SESSION['user'])){
       echo "Vous êtes déjà connecté" ?>
 <!-- FAIRE UN TRUC EN JS AVEC UN BTN QUI DECO QUAND ON CLIQUE DESSUS (PARCE QUE EN VRAI UN FORM CA FAIT BIZARRE) -->
-      <form method="post" action="php/action/logout.php">
+      <form method="post" action="logout.php">
         <input type="submit" name="logout" values="Deconnexion" />
       </form>
     <?php
@@ -76,28 +76,29 @@
               echo $_SESSION['success'];
             }
             ?>
-            <form method="post" action="signup_in.php">
+            <form class="center" method="post" action="signup_in.php">
                 <label>Addresse Email : </label><input name="email" type="text" /><br />
                 <label>Mot de Passe : </label><input name="password" type="password" />
                 <input type="submit" name="sign" value="Connexion" />
                 <input type="submit" name="sign" value="Inscription" />
             </form>
             <div id="g_id_onload"
-                data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
-                data-context="signin"
-                data-ux_mode="popup"
-                data-login_uri="http://localhost/Gamebox/signup_in.php"
-                data-auto_prompt="false">
-            </div>
+              data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
+              data-context="signin"
+              data-ux_mode="popup"
+              data-login_uri="http://localhost/Gamebox/signup_in.php"
+              data-auto_prompt="false">
+          </div>
 
-            <div class="g_id_signin"
-                data-type="standard"
-                data-shape="pill"
-                data-theme="outline"
-                data-text="continue_with"
-                data-size="large"
-                data-logo_alignment="left">
-            </div>
+          <div class="g_id_signin"
+              data-type="standard"
+              data-shape="pill"
+              data-theme="outline"
+              data-text="continue_with"
+              data-size="large"
+              data-logo_alignment="center"
+              data-witdh="400px">
+          </div>
     <?php
     }
     ?>

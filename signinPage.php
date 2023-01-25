@@ -61,7 +61,17 @@
       <form class="center" method="post" action="logout.php">
         <input class="inputBtn" type="submit" name="logout" value="Deconnexion" />
       </form>
-    <?php
+      <div class="center">
+        <?php
+          if(isset($_SESSION['user'])){
+            if ($_SESSION['user']['admin']==1){
+              ?>
+              <a class="text-color" href="admin.php">Page Administrateur</a>
+              <?php
+            }
+          } ?>
+      </div>
+      <?php
     }
 
     else
@@ -78,7 +88,9 @@
             }
 
             else if (isset($_SESSION['success'])){
-              echo $_SESSION['success'];
+              ?>
+              <p class="center"><?php echo $_SESSION['success']; ?></p>
+              <?php
             }
 
             ?>

@@ -61,7 +61,17 @@
       <form class="center" method="post" action="logout.php">
         <input class="inputBtn" type="submit" name="logout" value="Deconnexion" />
       </form>
-    <?php
+      <div class="center">
+        <?php
+          if(isset($_SESSION['user'])){
+            if ($_SESSION['user']['admin']==1){
+              ?>
+              <a class="text-color" href="admin.php">Page Administrateur</a>
+              <?php
+            }
+          } ?>
+      </div>
+      <?php
     }
 
     else
@@ -78,14 +88,18 @@
             }
 
             else if (isset($_SESSION['success'])){
-              echo $_SESSION['success'];
+              ?>
+              <p class="center"><?php echo $_SESSION['success']; ?></p>
+              <?php
             }
 
             ?>
-            <div class="container">
+            <div class="container input-field">
               <form class="center" method="post" action="signinPage.php">
-                  <label >Addresse Email : </label><input class="text-color" name="email" type="text" /><br />
-                  <label>Mot de Passe : </label><input class="text-color" name="password" type="password" />
+                  <p >Addresse Email</p>
+                  <input class="center" name="email" type="text" /><br />
+                  <p>Mot de Passe</p>
+                  <input class="center" name="password" type="password" />
                   <input class="inputBtn" type="submit" name="sign" value="Connexion" />
               </form>
             </div>

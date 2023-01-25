@@ -21,11 +21,14 @@
 
             <h1 class="center"><b>CONTACT</b></h1>
 
-            <div class="container">
+            <div class="container input-field">
                 <form class="center" method="post" action="signinPage.php">
-                    <label>Addresse Email : </label><input class="text-color" name="email" type="text" /><br />
-                    <label>Objet : </label><input class="text-color" name="object" type="text" />
-                    <label>Votre Message : </label><textarea class="text-color" name="message" cols="30" rows="10"></textarea>
+                    <p>Addresse Email : </p>
+                    <input class="center" name="email" type="text" /><br />
+                    <p>Objet : </p>
+                    <input class="center" name="object" type="text" />
+                    <p>Votre Message : </p>
+                    <textarea class="center" name="message" cols="30" rows="10"></textarea>
                     <input class="inputBtn" type="submit" name="sign" value="Envoyer" />
                 </form>
             </div>

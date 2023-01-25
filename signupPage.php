@@ -20,49 +20,11 @@
     <?php require "php/components/nav.php"; ?>
 
     <?php
-    if (isset($_POST['credential'])){
-      if (!empty($_POST['credential'])){
-        if (empty($_COOKIE['g_csrf_token']) || empty($_POST['g_csrf_token']) || $_COOKIE['g_csrf_token'] != $_POST['g_csrf_token']){
-          $_SESSION['error'] = "ERROOOOOOOOOOOOOOR";
-          exit();
-        }
-      }
-      
-      $clientId = "696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com";
-      $client = new Google_Client(['client_id' => $clientId]);  // Specify the clientId of the app that accesses the backend
-      
-      $id_token = $_POST['credential'];
-      $user = $client->verifyIdToken($id_token);
-      if ($user) {
-        $_SESSION['user'] = $user;
-
-        // If request specified a G Suite domain:
-        //$domain = $payload['hd'];
-      } else {
-        $_SESSION['error'] = "FUCK";
-      }
-    }
     // Si l'email, le mot de passe ont bien été renseigné dans le form et si l'utilisateur a appuyer sur le bouton Connexion
     if ((isset($_POST['email'])) || (isset($_POST['password'])) || (isset($_POST["sign"]))){
-      
-      if ($_POST["sign"]=="Connexion"){
-        require_once "php/action/signin.php";
-      }     
-      
-      else if ($_POST["sign"]=="Inscription"){
         require_once "php/action/signup.php";  
-    }
 
     }
-    else if (isset($_SESSION['user'])){
-      echo "Vous êtes déjà connecté" ?>
-<!-- FAIRE UN TRUC EN JS AVEC UN BTN QUI DECO QUAND ON CLIQUE DESSUS (PARCE QUE EN VRAI UN FORM CA FAIT BIZARRE) -->
-      <form method="post" action="logout.php">
-        <input type="submit" name="logout" values="Deconnexion" />
-      </form>
-    <?php
-    }
-
     else
     {
     ?>
@@ -75,13 +37,18 @@
               <?php 
             }
             else if (isset($_SESSION['success'])){
-              echo $_SESSION['success'];
+              ?>
+              <p class="center"><?php echo $_SESSION['success']; ?></p>
+              <?php
             }
             ?>
-            <div class="container">
+
+            <div class="container input-field">
               <form class="center" method="post" action="signupPage.php">
-                  <label>Addresse Email : </label><input class="text-color" name="email" type="text" /><br />
-                  <label>Mot de Passe : </label><input class="text-color" name="password" type="password" />
+                  <p>Addresse Email</p>
+                  <input class="center" name="email" type="text" /><br />
+                  <p>Mot de Passe</p>
+                  <input class="center" name="password" type="password" />
                   <div>
                     <input class="inputBtn" type="submit" name="sign" value="Inscription" />
                   </div>

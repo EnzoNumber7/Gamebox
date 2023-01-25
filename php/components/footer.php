@@ -36,7 +36,7 @@
 
     <div class="row">
         <div class="col l6 center">
-            <a class="footer-text" href="">Mentions Légales</a>
+            <a class="footer-text" href="CGV.php">Mentions Légales</a>
         </div>
         <div class="col l6 center">
             <a class="footer-text" href="contact.php">Contact <iconify-icon icon="material-symbols:mail-outline" width="20" height="20"></iconify-icon></a>

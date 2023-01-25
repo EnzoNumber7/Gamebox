@@ -26,16 +26,23 @@
 
   <body>
 
-  <nav>
-    <div class="nav-wrapper main-color text-color">
-      <a href="index.php" class="brand-logo"><iconify-icon class="icon-position padding" icon="mdi:progress-question" width="40" height="40"></iconify-icon> Gamebox</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down valign-wrapper">
-        <li><a class="connect-icon" href="signinPage.php"><iconify-icon class="icon-position" icon="material-symbols:frame-person" width="40" height="40"></iconify-icon></a></li>
+  <nav class="main-color">
+    <div class="nav-wrapper text-color">
+      <a href="index.php" class="brand-logo"><iconify-icon inline icon="mdi:progress-question" width="33" height="33"></iconify-icon> Gamebox</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="signinPage.php"><iconify-icon inline icon="bi:person-circle" width="20" height="20"></iconify-icon> Connexion</a></li>
       </ul>
     </div>
   </nav>
 
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href=""><iconify-icon inline icon="bi:person-circle" width="20" height="20"></iconify-icon> Connexion</a></li>
+  </ul>
+
+
   <!-- Import Iconify -->
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <!-- Import Our JS -->
+  <script src="src/js/script.js"></script>
   </body>
 </html>

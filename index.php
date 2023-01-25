@@ -116,7 +116,7 @@
     </div>
 
     <div class="center">
-      <a class="waves-effect waves-light btn-large button-style">Commander ma Box</a>
+      <a class="waves-effect waves-light btn-large button-style" href="product.php">Commander ma Box</a>
     </div>
   </div>
 

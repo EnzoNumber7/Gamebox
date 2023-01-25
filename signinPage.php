@@ -95,13 +95,14 @@
 
             ?>
             <div class="container input-field">
-              <form class="center" method="post" action="signinPage.php">
-                  <p >Addresse Email</p>
-                  <input class="center" name="email" type="text" /><br />
-                  <p>Mot de Passe</p>
-                  <input class="center" name="password" type="password" />
-                  <input class="inputBtn" type="submit" name="sign" value="Connexion" />
-              </form>
+                <form class="center" method="post" action="signinPage.php">
+                    <p >Addresse Email</p>
+                    <input class="center" name="email" type="text" /><br />
+                    <p>Mot de Passe</p>
+                    <input class="center" name="password" type="password" />
+                    <input class="inputBtn" type="submit" name="sign" value="Connexion" />
+                </form>
+              
             </div>
             <div class="center">
               <a class="text-color" href="signupPage.php">Crée un Compte</a>

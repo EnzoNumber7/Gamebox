@@ -67,13 +67,12 @@ class PayPalPayment {
 		$access_token = $data->access_token;
 
 		// Récupérer le nombre de secondes avant expiration :
-        $expires_in = 4000;
-		$timestamp_expiration = intval($data->$expires_in) - 120; // Timestamp donné -2 minutes (marge supplémentaire)
+		//$timestamp_expiration = intval($data->expires_in) - 120; // Timestamp donné -2 minutes (marge supplémentaire)
 
 		// Création des variables de session avec expiration_date et access_token
 		$_SESSION['paypal_token'] = [];
 		$_SESSION['paypal_token']['access_token'] = $access_token;
-		$_SESSION['paypal_token']['expiration_timestamp'] = time() + $timestamp_expiration;
+		//$_SESSION['paypal_token']['expiration_timestamp'] = time() + $timestamp_expiration;
 
 
 		if ($access_token) {

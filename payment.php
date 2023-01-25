@@ -1,60 +1,64 @@
-<?php require_once "php/config/config.php"; ?>
+<?php require_once "php/components/nav.php"; ?>
+<?php //require_once "php/components/footer.php"; ?>
 <html>
 <head>
   <title>Page de paiement</title>
   <meta charset="utf-8">
-  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+  <script src="https://www.paypal.com/sdk/js"></script>
+
+  <!--Import materialize-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+
+
 </head>
 <body>
-  <div id="bouton-paypal"></div>
+  <h1 class="title-font center">Paiement et Livraison</h1>
+  <div id="smart-button-container">
+    <div style="text-align: center;">
+      <div id="paypal-button-container"></div>
+    </div>
+  </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
   <script>
-    	paypal.Button.render({
-      env: 'sandbox', 
-      commit: true,
-      style: {
-        color: 'gold', 
-        size: 'responsive' 
-      },
-      payment: function() {
-       
-        var CREATE_URL = 'php/paypal_create_payment.php';
-        
-        return paypal.request.post(CREATE_URL)
-          .then(function(data) { 
-            console.log(data);
-            if (data.success) { 
-            } else { 
-               alert(data.msg);
-               return false;   
-            }
-         });
-      },
-      onAuthorize: function(data, actions) {
-       
-        var EXECUTE_URL = 'php/paypal_execute_payment.php';
-        
-        var data = {
-          paymentID: data.paymentID,
-          payerID: data.payerID
-        };
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+          
+        },
 
-        return paypal.request.post(EXECUTE_URL, data)
-          .then(function (data) { 
-            console.log(data);
-            if (data.success) { 
-              alert("Paiement approuvé ! Merci !");
-            } else {
-              alert(data.msg);
-            }
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
           });
         },
-      onCancel: function(data, actions) {
-        alert("Paiement annulé : vous avez fermé la fenêtre de paiement.");
-      },
-      onError: function(err) {
-        alert("Paiement annulé : une erreur est survenue. Merci de bien vouloir réessayer ultérieurement.");
-      }
-    }, '#bouton-paypal');
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(orderData) {
+            
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+            // Show a success message within this page, e.g.
+            const element = document.getElementById('paypal-button-container');
+            element.innerHTML = '';
+            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+            // Or go to another URL:  actions.redirect('thank_you.html');
+            
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
   </script>
 </body>
 </html>

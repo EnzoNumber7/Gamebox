@@ -78,10 +78,12 @@
               echo $_SESSION['success'];
             }
             ?>
-            <div class="container">
+            <div class="container input-field">
               <form class="center" method="post" action="signupPage.php">
-                  <label>Addresse Email : </label><input class="text-color" name="email" type="text" /><br />
-                  <label>Mot de Passe : </label><input class="text-color" name="password" type="password" />
+                  <p>Addresse Email</p>
+                  <input class="center" name="email" type="text" /><br />
+                  <p>Mot de Passe</p>
+                  <input class="center" name="password" type="password" />
                   <div>
                     <input class="inputBtn" type="submit" name="sign" value="Inscription" />
                   </div>

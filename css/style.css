@@ -75,6 +75,19 @@ h2{
     font-size: 400%;
 }
 
+.Mention h1{
+    font-size: 400%;
+}
+
+.Mention h2, .CGV h2{
+    font-size: 300%;
+}
+
+.CGV h3{
+    font-size: 250%;
+}
+
+
 /* Contenu de la box */
 
 .card-color{

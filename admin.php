@@ -49,6 +49,7 @@
         </div>
         <div class="col s6 l3">
             <form class="center" method="post" action="php/action/admin_user.php">
+                <input type="hidden" name="email" value="<?php echo $user['email'];?>">
                 <input type="hidden" name="admin" value="<?php echo $user['admin'];?>">
                 <input class="inputBtn" type="submit" value="<?php if ($user['admin']==1){
                     echo "Démettre Admin";
@@ -59,7 +60,7 @@
             </form>
         </div>
         <div class="col s6 l3">
-            <form method="post" action="delete_user.php" class="center">
+            <form method="post" action="php/action/delete_user.php" class="center">
                 <input type="hidden" name="email" value="<?php echo $user['email'];?>">
                 <input type="submit" class="inputBtn" value="Supprimer">
             </form>

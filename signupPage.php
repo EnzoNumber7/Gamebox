@@ -84,7 +84,7 @@
                 </div>
             </form>
             <div class="center">
-              <a class="text-color" href="signupPage.php">Connexion</a>
+              <a class="text-color" href="signinPage.php">Connexion</a>
             </div>
     <?php
     }

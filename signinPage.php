@@ -91,7 +91,7 @@
               data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
               data-context="signin"
               data-ux_mode="popup"
-              data-login_uri="http://localhost/Gamebox/signup_in.php"
+              data-login_uri="http://localhost/Gamebox/signinPage.php"
               data-auto_prompt="false">
           </div>
 

@@ -69,25 +69,31 @@
             <h1 class="center"><b>CREE UN COMPTE</b></h1>
 
             <?php
-            if (isset($_SESSION['error'])){
-              echo $_SESSION['error'];
+            if (isset($_SESSION['signup_error'])){
+              ?>
+              <p class="center error"><?php echo $_SESSION['signup_error']; ?></p>
+              <?php 
             }
             else if (isset($_SESSION['success'])){
               echo $_SESSION['success'];
             }
             ?>
-            <form class="center" method="post" action="signup_in.php">
-                <label>Addresse Email : </label><input name="email" type="text" /><br />
-                <label>Mot de Passe : </label><input name="password" type="password" />
-                <div>
-                  <input class="inputBtn" type="submit" name="sign" value="Inscription" />
-                </div>
-            </form>
+            <div class="container">
+              <form class="center" method="post" action="signupPage.php">
+                  <label>Addresse Email : </label><input class="text-color" name="email" type="text" /><br />
+                  <label>Mot de Passe : </label><input class="text-color" name="password" type="password" />
+                  <div>
+                    <input class="inputBtn" type="submit" name="sign" value="Inscription" />
+                  </div>
+              </form>
+            </div>
+            
             <div class="center">
               <a class="text-color" href="signinPage.php">Connexion</a>
             </div>
     <?php
     }
+    require "php/components/footer.php";
     ?>
     </body>
 </html>

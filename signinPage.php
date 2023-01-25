@@ -55,10 +55,11 @@
 
     }
     else if (isset($_SESSION['user'])){
-      echo "Vous êtes déjà connecté" ?>
+      ?>
+      <p class="center">Vous êtes déjà connecté</p>
 <!-- FAIRE UN TRUC EN JS AVEC UN BTN QUI DECO QUAND ON CLIQUE DESSUS (PARCE QUE EN VRAI UN FORM CA FAIT BIZARRE) -->
-      <form method="post" action="logout.php">
-        <input type="submit" name="logout" values="Deconnexion" />
+      <form class="center" method="post" action="logout.php">
+        <input class="inputBtn" type="submit" name="logout" value="Deconnexion" />
       </form>
     <?php
     }
@@ -68,19 +69,26 @@
     ?>
             <h1 class="center"><b>CONNEXION</b></h1>
 
+
             <?php
             if (isset($_SESSION['error'])){
-              echo $_SESSION['error'];
+            ?>
+            <p class="center error"><?php echo $_SESSION['error']; ?></p>
+            <?php 
             }
+
             else if (isset($_SESSION['success'])){
               echo $_SESSION['success'];
             }
+
             ?>
-            <form class="center" method="post" action="signinPage.php">
-                <label>Addresse Email : </label><input name="email" type="text" /><br />
-                <label>Mot de Passe : </label><input name="password" type="password" />
-                <input class="inputBtn" type="submit" name="sign" value="Connexion" />
-            </form>
+            <div class="container">
+              <form class="center" method="post" action="signinPage.php">
+                  <label >Addresse Email : </label><input class="text-color" name="email" type="text" /><br />
+                  <label>Mot de Passe : </label><input class="text-color" name="password" type="password" />
+                  <input class="inputBtn" type="submit" name="sign" value="Connexion" />
+              </form>
+            </div>
             <div class="center">
               <a class="text-color" href="signupPage.php">Crée un Compte</a>
             </div>
@@ -95,7 +103,7 @@
               data-auto_prompt="false">
           </div>
 
-          <div class="g_id_signin"
+          <div class="g_id_signin margin-left"
               data-type="standard"
               data-shape="pill"
               data-theme="outline"
@@ -106,6 +114,7 @@
           </div>
     <?php
     }
+    require "php/components/footer.php";
     ?>
     <script src="https://accounts.google.com/gsi/client" async defer></script>  
     </body>

@@ -71,9 +71,6 @@ p{
     font-size: 150%;
 }
 
-h2{
-    font-size: 400%;
-}
 
 /* Contenu de la box */
 
@@ -102,6 +99,17 @@ h2{
 .button-style:hover{
     background-color: var(--main-color);
     color: var(--text-color);
+}
+
+/* Panier */
+
+.light-border{
+    border: medium solid var(--text-color);
+    border-radius: 50px;
+}
+
+.underline{
+    text-decoration: underline;
 }
 
 /* Footer */

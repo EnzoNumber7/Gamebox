@@ -1,5 +1,4 @@
 <?php require_once "php/components/nav.php"; ?>
-<?php //require_once "php/components/footer.php"; ?>
 <html>
 <head>
   <title>Page de paiement</title>
@@ -60,5 +59,7 @@
     }
     initPayPalButton();
   </script>
+  <?php require_once "php/components/footer.php"; ?>
 </body>
+
 </html>

@@ -1,4 +1,5 @@
 /* Variables */
+
 :root {
     --main-font:'Montserrat', sans-serif;
     --title-font:'Koulen', cursive;
@@ -64,46 +65,68 @@ body{
 }
 
 /* NavBar */
-.connect-icon{
-    padding: 0;
+
+nav{
+    top: 0;
+}
+
+@media only screen and (max-width: 350px) {
+    .gamebox{
+        font-size: 75% !important;
+    }
+}
+
+.side-nav-config{
+    color: var(--main-color);
+    background-color: var(--text-color);
 }
 
 /* Titre et Fond */
+
 .scorn{
-    background-image: url(../img/scorn.png);
     background-position: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
-    padding: 500px;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+
+.scorn-width{
+    width: 100%;
+}
+
+.centered-title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 h1{
     font-size: 500%;
 }
 
+@media only screen and (max-width: 1000px) {
+    h1{
+        font-size: 200%;
+    }
+}
+
 /* Notre Concept */
+
 p{
     font-size: 150%;
 }
 
-
-.Mention h1{
-    font-size: 400%;
-}
-
-.Mention h2, .CGV h2{
-    font-size: 300%;
-}
-
-.CGV h3{
-    font-size: 250%;
-}
-
-
 /* Contenu de la box */
 
-.card-color{
+.space{
+    margin-top: 10%;
+}
+
+.card-config{
     background-color: var(--text-color);
+    max-width: 450px;
 }
 
 .card-text{
@@ -111,7 +134,7 @@ p{
 }
 
 .img-size{
-    height: 75%;
+    height: 15rem;
 }
 
 .button-style{
@@ -129,21 +152,41 @@ p{
     color: var(--text-color);
 }
 
-/* Panier */
+/* Page Produit */
 
-.light-border{
-    border: medium solid var(--text-color);
-    border-radius: 50px;
+.content-title{
+    font-size: 200%;
+    font-weight: 600;
 }
 
-.underline{
-    text-decoration: underline;
+.product-card{
+    text-align: justify;
+}
+
+.product-title{
+    font-weight: 600;
+}
+
+.btn-panier{
+    margin-top: 3%;
+}
+
+/* Floating Button */
+
+.float-btn{
+    background-color: var(--text-color);
+    color: var(--main-color);
+}
+
+.float-btn:hover{
+    background-color: var(--main-color);
+    color: var(--text-color);
 }
 
 /* Footer */
 
 footer{
-    margin-top: 2%;
+    margin-top: 5%;
 }
 
 .footer-title{
@@ -172,4 +215,10 @@ footer{
 
 .footer-credits p{
     margin: 0;
+}
+
+.fbtitle a{
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
 }

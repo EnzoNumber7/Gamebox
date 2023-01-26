@@ -10,9 +10,21 @@
   <link type="text/css" rel="stylesheet" href="css/style.css">
 
 
+
 </head>
 <body>
-  <h1 class="title-font center">Paiement et Livraison</h1>
+  <h1 class="title-font center">Panier/Paiement</h1>
+
+  <div class="container light-border">
+    <h2><iconify-icon inline icon="ic:round-shopping-cart"></iconify-icon>Résumé du Panier :</h2>
+    <div class="row">  
+      <h3 class="col l4 m4 s4 underline">Produit</h3>
+      <h3 class="col l4 m4 s4 underline">Quantité</h3>
+      <h3 class="col l4 m4 s4 underline">Prix/u</h3>
+    </div>
+    
+  </div>
+
   <div id="smart-button-container">
     <div style="text-align: center;">
       <div id="paypal-button-container"></div>
@@ -60,6 +72,7 @@
     initPayPalButton();
   </script>
   <?php require_once "php/components/footer.php"; ?>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 </body>
 
 </html>

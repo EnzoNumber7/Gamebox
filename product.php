@@ -26,7 +26,7 @@
 
   <body>
 
-    <?php require "components/nav.php"; ?>
+    <?php require "php/components/nav.php"; ?>
 
     <div class="container">
 
@@ -119,7 +119,7 @@
         </a>
     </div>
 
-    <?php require "components/footer.php"; ?>
+    <?php require "php/components/footer.php"; ?>
 
     <!-- JQuery -->
     <script src="script/jquery.min.js"></script>

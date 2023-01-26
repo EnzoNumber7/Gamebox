@@ -23,7 +23,7 @@
   </head>
 
   <body>
-  <?php require "components/nav.php"; ?>
+  <?php require "php/components/nav.php"; ?>
 
   <div class="scorn valign-center text-color center">
     <img class="scorn-width" src="img/scorn.png">
@@ -136,7 +136,7 @@
     </a>
   </div>
 
-  <?php require "components/footer.php"; ?>
+  <?php require "php/components/footer.php"; ?>
 
   <!-- JQuery -->
   <script src="script/jquery.min.js"></script>

@@ -32,9 +32,9 @@ else if ($admin == 1){
     $pre = $pdo->prepare($sql);
     $pre->execute($dataBinded);
         
-    header('Location:../../index.php');//on le redirige sur la page d'accueil du site !
+    header('Location:../../admin.php');//on le redirige sur la page d'accueil du site !
     exit();
 }
 
-header('Location:../../index.php');//on le redirige sur la page d'accueil du site !
+header('Location:../../admin.php');//on le redirige sur la page d'accueil du site !
 exit();

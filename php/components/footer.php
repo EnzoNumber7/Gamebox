@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Config Tab In Browser -->
-    <link rel="icon" href="">
+    <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
 
@@ -31,15 +31,15 @@
     <div class="hline"></div>
 
     <div class="center">
-        <h3><a class="footer-title" href="index.php"><iconify-icon class="icon-position padding" icon="mdi:progress-question" width="40" height="40"></iconify-icon> Gamebox</a></h3>
+        <h3><a class="footer-title" href="index.php"><iconify-icon class="icon-position padding" inline icon="mdi:progress-question" width="40" height="40"></iconify-icon> Gamebox</a></h3>
     </div>
 
     <div class="row">
-        <div class="col l6 center">
+        <div class="col l6 m12 s12 center">
             <a class="footer-text" href="CGV.php">Mentions Légales</a>
         </div>
-        <div class="col l6 center">
-            <a class="footer-text" href="contact.php">Contact <iconify-icon icon="material-symbols:mail-outline" width="20" height="20"></iconify-icon></a>
+        <div class="col l6 m12 s12 center">
+            <a class="footer-text" href="contact.php">Contact <iconify-icon inline icon="material-symbols:mail-outline" width="20" height="20"></iconify-icon></iconify-icon></a>
         </div>
     </div>
 
@@ -48,9 +48,12 @@
     </div>
   </footer>
 
+  <!-- JQuery -->
+  <script src="script/jquery.min.js"></script>
+  <!-- Materialize -->
+  <script src="script/materialize.min.js"></script>
   <!-- Import Iconify -->
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
   <!-- Import Our JS -->
-  <script src="src/js/script.js"></script>
+  <script src="script/script.js"></script>
   </body>
-</html>

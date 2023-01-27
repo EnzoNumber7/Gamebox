@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 24 Janvier 2023 à 10:34
+-- Généré le :  Jeu 26 Janvier 2023 à 17:22
 -- Version du serveur :  5.7.11
--- Version de PHP :  7.0.3
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `grpa-5-gamebox`
 --
-CREATE DATABASE IF NOT EXISTS `grpa-5-gamebox` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `grpa-5-gamebox`;
 
 -- --------------------------------------------------------
 
@@ -30,15 +28,10 @@ USE `grpa-5-gamebox`;
 
 CREATE TABLE `admin_gestion` (
   `theme_title` varchar(100) NOT NULL,
-  `navbar_color` varchar(7) NOT NULL,
-  `bg_color` varchar(7) NOT NULL,
-  `font_family` text NOT NULL,
-  `font_family_2` text NOT NULL,
-  `month` varchar(10) NOT NULL,
-  `user_email` varchar(100) NOT NULL,
-  `payment_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `cgv` text NOT NULL
+  `bg_image` text NOT NULL,
+  `main_color` text CHARACTER SET utf8 NOT NULL,
+  `title_font` text CHARACTER SET utf8 NOT NULL,
+  `main_font` text CHARACTER SET utf8mb4 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -56,6 +49,13 @@ CREATE TABLE `box` (
   `stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `box`
+--
+
+INSERT INTO `box` (`id_product_1`, `id_product_2`, `id_product_3`, `id_product_4`, `id_product_5`, `stock`) VALUES
+(1, 2, 3, 4, 5, 250);
+
 -- --------------------------------------------------------
 
 --
@@ -71,17 +71,14 @@ CREATE TABLE `contact` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `payments`
+-- Structure de la table `payment`
 --
 
-CREATE TABLE `payments` (
-  `id` int(11) NOT NULL,
-  `payment_id` varchar(255) NOT NULL,
-  `payment_status` text NOT NULL,
-  `payment_amount` text NOT NULL,
-  `payment_currency` text NOT NULL,
-  `payment_date` datetime NOT NULL,
-  `payer_email` text NOT NULL
+CREATE TABLE `payment` (
+  `qte` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -92,10 +89,22 @@ CREATE TABLE `payments` (
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `img` varchar(50) NOT NULL,
+  `img` text CHARACTER SET utf8 NOT NULL,
   `name` varchar(50) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `img_2` text CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `products`
+--
+
+INSERT INTO `products` (`id`, `img`, `name`, `description`, `img_2`) VALUES
+(1, 'img/deadbydaylight.jpg', 'Dead by Daylight', 'Jeu de survival d’horreur, multijoueur sorti en 2016. Sur le principe du cache-cache, tueurs et survivants s’affrontent. Vous pourrez choisir votre personnage ainsi que votre camps pour prendre part à la bataille.', 'img/dbd.jpg'),
+(2, 'img/pj.jpg', 'Pumpkin Jack', 'Platformer 3D indépendant sortien 2020. A travers des paysages fantastiques et au travers d’un univers effrayant et amusant incarnez Jack, le seigneur à la tête de citrouille pour l’aider à triompher du bien.', 'img/pumpkinjack.jpg'),
+(3, 'img/sh.jpg', 'T-Shirt Silent Hill', '', 'img/sh.jpg'),
+(4, 'img/nendoroid.jpg', 'Nendoroid Le Piégeur', '', 'img/nendoroid.jpg'),
+(5, 'img/mystery.png', 'Goodies Mystère', '', 'img/mystery.png');
 
 -- --------------------------------------------------------
 
@@ -110,16 +119,15 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Index pour les tables exportées
+-- Contenu de la table `user`
 --
 
+INSERT INTO `user` (`email`, `password`, `admin`) VALUES
+('t', '5f8bdda8d653b377ab6523ca14225b50', 1);
+
 --
--- Index pour la table `admin_gestion`
+-- Index pour les tables exportées
 --
-ALTER TABLE `admin_gestion`
-  ADD KEY `user_email` (`user_email`),
-  ADD KEY `payment_id` (`payment_id`),
-  ADD KEY `product_id` (`product_id`);
 
 --
 -- Index pour la table `box`
@@ -139,9 +147,9 @@ ALTER TABLE `contact`
   ADD KEY `email` (`email`);
 
 --
--- Index pour la table `payments`
+-- Index pour la table `payment`
 --
-ALTER TABLE `payments`
+ALTER TABLE `payment`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -161,10 +169,44 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT pour la table `payments`
+-- AUTO_INCREMENT pour la table `products`
 --
-ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Métadonnées
+--
+USE `phpmyadmin`;
+
+--
+-- Métadonnées pour admin_gestion
+--
+
+--
+-- Métadonnées pour box
+--
+
+--
+-- Métadonnées pour contact
+--
+
+--
+-- Métadonnées pour payment
+--
+
+--
+-- Métadonnées pour products
+--
+
+--
+-- Métadonnées pour user
+--
+
+--
+-- Métadonnées pour grpa-5-gamebox
+--
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

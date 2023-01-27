@@ -50,7 +50,7 @@
                   <p>Mot de Passe</p>
                   <input class="center" name="password" type="password" />
                   <div>
-                    <input class="inputBtn" type="submit" name="sign" value="Inscription" />
+                    <input class="inputBtn button-style" type="submit" name="sign" value="Inscription" />
                   </div>
               </form>
             </div>
@@ -62,5 +62,13 @@
     }
     require "php/components/footer.php";
     ?>
+      <!-- JQuery -->
+    <script src="script/jquery.min.js"></script>
+    <!-- Materialize -->
+    <script src="script/materialize.min.js"></script>
+    <!-- Import Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <!-- Import Our JS -->
+    <script src="script/script.js"></script>
     </body>
 </html>

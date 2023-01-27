@@ -5,6 +5,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -59,7 +60,7 @@
       <p class="center">Vous êtes déjà connecté</p>
 <!-- FAIRE UN TRUC EN JS AVEC UN BTN QUI DECO QUAND ON CLIQUE DESSUS (PARCE QUE EN VRAI UN FORM CA FAIT BIZARRE) -->
       <form class="center" method="post" action="logout.php">
-        <input class="inputBtn" type="submit" name="logout" value="Deconnexion" />
+        <input class="inputBtn button-style waves-effect waves-light" type="submit" name="logout" value="Deconnexion" />
       </form>
       <div class="center">
         <?php
@@ -100,7 +101,7 @@
                     <input class="center" name="email" type="text" /><br />
                     <p>Mot de Passe</p>
                     <input class="center" name="password" type="password" />
-                    <input class="inputBtn" type="submit" name="sign" value="Connexion" />
+                    <input class="inputBtn button-style" type="submit" name="sign" value="Connexion" />
                 </form>
               
             </div>
@@ -127,10 +128,46 @@
               data-logo_alignment="center"
               data-witdh="400px">
           </div>
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '{your-app-id}',
+          cookie     : true,
+          xfbml      : true,
+          version    : '{api-version}'
+        });
+
+        FB.AppEvents.logPageView();
+
+      };
+
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=740267983967555&autoLogAppEvents=1" nonce="2AGUpHaT"></script>
+
+    <div class="fb-login-button margin-left" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
     <?php
     }
     require "php/components/footer.php";
     ?>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>  
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script> 
+      <!-- JQuery -->
+    <script src="script/jquery.min.js"></script>
+    <!-- Materialize -->
+    <script src="script/materialize.min.js"></script>
+    <!-- Import Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <!-- Import Our JS -->
+    <script src="script/script.js"></script>
     </body>
 </html>

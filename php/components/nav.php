@@ -20,29 +20,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Config Tab In Browser -->
-    <link rel="icon" href="">
+    <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
 
   <body>
 
-  <nav class="main-color">
-    <div class="nav-wrapper text-color">
-      <a href="index.php" class="brand-logo"><iconify-icon inline icon="mdi:progress-question" width="33" height="33"></iconify-icon> Gamebox</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="signinPage.php"><iconify-icon inline icon="bi:person-circle" width="20" height="20"></iconify-icon> Connexion</a></li>
-      </ul>
-    </div>
-  </nav>
+    <nav id="nav" class="main-color text-color">
+      <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><iconify-icon icon="ic:round-menu" width="50" height="40"></iconify-icon></a>
+        <a href="index.php" class="brand-logo hide-on-small-only"><iconify-icon inline icon="mdi:progress-question" width="33" height="33"></iconify-icon> Gamebox</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="signinPage.php"><iconify-icon inline icon="bi:person-circle" width="20" height="20"></iconify-icon> Connexion</a></li>
+          <li><a href="payment.php"><iconify-icon inline icon="material-symbols:shopping-cart-outline" width="20" height="20"></iconify-icon> Panier</a></li>
+        </ul>
+      </div>
+    </nav>
+      
+    <ul class="sidenav side-nav-config" id="mobile-demo">
+      <li><a href="signinPage.php"><iconify-icon inline icon="bi:person-circle" width="20" height="20"></iconify-icon> Connexion</a></li>
+      <li><a href="payment.php"><iconify-icon inline icon="material-symbols:shopping-cart-outline" width="20" height="20"></iconify-icon> Panier</a></li>
+    </ul>
 
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href=""><iconify-icon inline icon="bi:person-circle" width="20" height="20"></iconify-icon> Connexion</a></li>
-  </ul>
-
-
+  <!-- JQuery -->
+  <script src="script/jquery.min.js"></script>
+  <!-- Materialize -->
+  <script src="script/materialize.min.js"></script>
   <!-- Import Iconify -->
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
   <!-- Import Our JS -->
-  <script src="src/js/script.js"></script>
+  <script src="script/script.js"></script>
+
   </body>
 </html>

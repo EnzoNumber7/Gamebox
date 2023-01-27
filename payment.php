@@ -30,7 +30,7 @@
       <div id="paypal-button-container"></div>
     </div>
   </div>
-  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=EUR" data-sdk-integration-source="button-factory"></script>
   <script>
     function initPayPalButton() {
       paypal.Buttons({
@@ -44,7 +44,7 @@
 
         createOrder: function(data, actions) {
           return actions.order.create({
-            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+            purchase_units: [{"amount":{"currency_code":"EUR","value":79.99}}]
           });
         },
 

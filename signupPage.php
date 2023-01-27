@@ -45,12 +45,16 @@
 
             <div class="container input-field">
               <form class="center" method="post" action="signupPage.php">
+                <div class="col s12">
                   <p>Addresse Email</p>
                   <input class="center" name="email" type="text" /><br />
                   <p>Mot de Passe</p>
                   <input class="center" name="password" type="password" />
                   <div>
-                    <input class="inputBtn button-style" type="submit" name="sign" value="Inscription" />
+                </div>
+                    </div>
+                  <div class="col s12">
+                    <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="sign">INSCRIPTION</button>
                   </div>
               </form>
             </div>

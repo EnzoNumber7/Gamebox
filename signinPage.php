@@ -44,30 +44,25 @@
       }
     }
     // Si l'email, le mot de passe ont bien été renseigné dans le form et si l'utilisateur a appuyer sur le bouton Connexion
-    if ((isset($_POST['email'])) || (isset($_POST['password'])) || (isset($_POST["sign"]))){
       
-      if ($_POST["sign"]=="Connexion"){
-        require_once "php/action/signin.php";
-      }     
-      
-      else if ($_POST["sign"]=="Inscription"){
-        require_once "php/action/signup.php";  
-    }
-
-    }
     else if (isset($_SESSION['user'])){
       ?>
       <p class="center">Vous êtes déjà connecté</p>
-<!-- FAIRE UN TRUC EN JS AVEC UN BTN QUI DECO QUAND ON CLIQUE DESSUS (PARCE QUE EN VRAI UN FORM CA FAIT BIZARRE) -->
+
+      
       <form class="center" method="post" action="logout.php">
-        <input class="inputBtn button-style waves-effect waves-light" type="submit" name="logout" value="Deconnexion" />
+        <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="logout">DECONNEXION</button>
       </form>
+      <div class="center">
+        <a href="index.php" class="waves-effect waves-light btn-large button-style margin-top">Acceuil</a>
+      </div>
+
       <div class="center">
         <?php
           if(isset($_SESSION['user'])){
             if ($_SESSION['user']['admin']==1){
               ?>
-              <a class="text-color" href="admin.php">Page Administrateur</a>
+              <a href="admin.php" class="waves-effect waves-light btn-large button-style margin-top">Administrateur</a>
               <?php
             }
           } ?>
@@ -77,6 +72,7 @@
 
     else
     {
+      echo isset($_SESSION['user']);
     ?>
             <h1 class="center"><b>CONNEXION</b></h1>
 
@@ -96,12 +92,16 @@
 
             ?>
             <div class="container input-field">
-                <form class="center" method="post" action="signinPage.php">
+                <form class="center" method="post" action="php/action/signin.php">
+                  <div class="col s12">
                     <p >Addresse Email</p>
                     <input class="center" name="email" type="text" /><br />
                     <p>Mot de Passe</p>
                     <input class="center" name="password" type="password" />
-                    <input class="inputBtn button-style" type="submit" name="sign" value="Connexion" />
+                  </div>
+                  <div class="col s12">
+                    <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="sign">CONNEXION</button>
+                  </div>
                 </form>
               
             </div>
@@ -128,7 +128,6 @@
               data-logo_alignment="center"
               data-witdh="400px">
           </div>
-          <div class="g-signin2" data-onsuccess="onSignIn"></div>
           <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -155,6 +154,25 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=740267983967555&autoLogAppEvents=1" nonce="2AGUpHaT"></script>
 
     <div class="fb-login-button margin-left" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+    
+    <span id='paypal'></span>
+    <script src='https://www.paypalobjects.com/js/external/api.js'></script>
+    <script>
+    paypal.use( ['login'], function (login) {
+      login.render ({
+        "appid":"AXJrQxn9J2jdbwr2Hs4b7_LgbcfshOjBvlW154bNMzYDjBRiw122vBB03CoGG1lInuEOVeHljXVI0yKB",
+        "authend":"sandbox",
+        "containerid":"paypal",
+        "responseType":"code",
+        "locale":"fr-fr",
+        "buttonType":"LWP",
+        "buttonShape":"pill",
+        "buttonSize":"lg",
+        "fullPage":"true",
+        "returnurl":"localhost/Gamebox/index.php"
+      });
+    });
+    </script>
     <?php
     }
     require "php/components/footer.php";

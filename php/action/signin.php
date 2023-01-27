@@ -1,5 +1,12 @@
 <?php
-require_once "php/config/config.php"; 
+require_once "../config/config.php"; 
+
+if ((empty($_POST['email'])) || (empty($_POST['password']))){
+  $_SESSION['error']="Il faut saisir une adresse email et un mot de passe";
+  header('Location:../../signinPage.php');
+  exit();
+}
+
 
 unset($_SESSION['success']);
 
@@ -25,5 +32,5 @@ if(empty($user)){ //vérifie si le resultat est vide !
   $_SESSION['user'] = $user; //on enregistre que l'utilisateur est connecté
   $_SESSION['success'] = "Vous avez été connecté avec succès";
 }
-header('Location:signinPage.php');
+header('Location:../../signinPage.php');
 exit();

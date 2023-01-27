@@ -23,8 +23,20 @@
   </head>
 
   <body>
-  <?php require "php/components/nav.php"; ?>
+
+  
+
+  <?php require "php/components/nav.php"; ?> 
+
   <h1 class="center">Page Administrateur</h1>
+
+  <?php
+  if (isset($_SESSION['admin_error'])){
+    ?>
+    <p class="center error"><?php echo $_SESSION['admin_error']; ?></p>
+  <?php
+  }
+    ?>
 
   <?php
   $sql = "Select * from user";
@@ -51,25 +63,51 @@
             <form class="center" method="post" action="php/action/admin_user.php">
                 <input type="hidden" name="email" value="<?php echo $user['email'];?>">
                 <input type="hidden" name="admin" value="<?php echo $user['admin'];?>">
-                <input class="inputBtn" type="submit" value="<?php if ($user['admin']==1){
+                <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="admin">
+                <?php if ($user['admin']==1){
                     echo "Démettre Admin";
                 }
                 else{
                     echo "Mettre Admin";
-                }?>">
+                }?>
+                </button>
             </form>
         </div>
         <div class="col s6 l3">
             <form method="post" action="php/action/delete_user.php" class="center">
                 <input type="hidden" name="email" value="<?php echo $user['email'];?>">
-                <input type="submit" class="inputBtn" value="Supprimer">
+                <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="delete">Supprimer</button>
             </form>
         </div>
     </div>
     <?php   
   }
-  ?>
 
-  <?php require "php/components/footer.php"; ?>
+    $sql = "Select * from contact";
+    $pre = $pdo->prepare($sql);
+    $pre->execute();
+    $users = $pre->fetchAll(); 
+
+    foreach($users as $user){
+    ?>
+
+  <div class="container input-field">
+    <h2 class="center">Mails de la Page Contact</h2>
+    <div class="row center">
+        <div class="col l6 m12 s12">
+            <h3>Mails Reçus</h3>
+            <p><?php echo $user['email']; ?></p>
+        </div>
+        <div class="col l6 m12 s12">
+            <h3>Réponse</h3>
+            <form method="post" action="">
+                <textarea class="center" name="message" cols="30" rows="10"></textarea>
+            </form>
+        </div>
+    </div>
+  </div>
+<?php }
+
+    require "php/components/footer.php"; ?>
   </body>
 </html>

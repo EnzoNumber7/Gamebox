@@ -18,6 +18,9 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Description for the Browser -->
+    <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
 
     <!-- Config Tab In Browser -->
     <link rel="icon" href="img/gamebox.png">
@@ -32,7 +35,7 @@
 
         <h1 class="center title-font product-page-title">Box d'Halloween</h1>
 
-        <h2 class="content-title"><iconify-icon inline icon="mdi:box-variant"></iconify-icon> Contenu de la box :</h2>
+        <h2 class="content-title"><iconify-icon inline icon="mdi:box-variant"></iconify-icon> Contenu de la Gamebox :</h2>
 
         <div class="row">
             <div class="col l4 m12 s12 offset-l2">
@@ -43,7 +46,7 @@
             <div class="col l4 m12 s12">
                 <div class="card card-config">
                 <div class="card-image">
-                    <img class="img-size" src="img/dbd.jpg">
+                    <img class="img-size" src="img/dbd.jpg" alt="un jeu populaire - Gamebox">
                 </div>
                 <div class="card-content center card-text">
                     <p class="product-title">Un Jeu Populaire</p>
@@ -56,7 +59,7 @@
             <div class="col l4 m12 s12 offset-l2">
                 <div class="card card-config">
                 <div class="card-image">
-                    <img class="img-size" src="img/pj.jpg">
+                    <img class="img-size" src="img/pj.jpg" alt="un jeu indépendant - Gamebox">
                 </div>
                 <div class="card-content center card-text">
                     <p class="product-title">Un Jeu Indépendant</p>
@@ -74,7 +77,7 @@
             <div class="col l4 m12 s12">
                 <div class="card card-config">
                 <div class="card-image">
-                    <img class="img-size" src="img/sh.jpg">
+                    <img class="img-size" src="img/sh.jpg" alt="goodies 1 - Gamebox">
                 </div>
                 <div class="card-content center card-text">
                     <p>T-Shirt Silent Hill</p>
@@ -84,7 +87,7 @@
             <div class="col l4 m12 s12">
                 <div class="card card-config">
                 <div class="card-image">
-                    <img class="img-size" src="img/nendoroid.jpg">
+                    <img class="img-size" src="img/nendoroid.jpg" alt="goodies 2 - Gamebox">
                 </div>
                 <div class="card-content center card-text">
                     <p>Nendoroid Le Piégeur</p>
@@ -94,7 +97,7 @@
             <div class="col l4 m12 s12">
                 <div class="card card-config">
                 <div class="card-image">
-                    <img class="img-size" src="img/mystery.png">
+                    <img class="img-size" src="img/mystery.png" alt="goodies mystère - Gamebox">
                 </div>
                 <div class="card-content center card-text">
                     <p>Goodies Mystère</p>

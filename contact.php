@@ -22,7 +22,7 @@
             <h1 class="center"><b>CONTACT</b></h1>
 
             <div class="container input-field">
-                <form class="center" method="post" action="contact.php">
+                <form class="center" method="post" action="php/action/mail.php">
                     <p>Addresse Email : </p>
                     <input class="center" name="email" type="text" /><br />
                     <p>Objet : </p>

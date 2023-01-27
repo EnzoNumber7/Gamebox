@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 26 Janvier 2023 à 17:22
+-- Généré le :  Ven 27 Janvier 2023 à 14:32
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -28,10 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin_gestion` (
   `theme_title` varchar(100) NOT NULL,
-  `bg_image` text NOT NULL,
-  `main_color` text CHARACTER SET utf8 NOT NULL,
-  `title_font` text CHARACTER SET utf8 NOT NULL,
-  `main_font` text CHARACTER SET utf8mb4 NOT NULL
+  `bg_image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,7 +75,9 @@ CREATE TABLE `payment` (
   `qte` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `date` date NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `user_email` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `payed` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -123,7 +122,31 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `password`, `admin`) VALUES
-('t', '5f8bdda8d653b377ab6523ca14225b50', 1);
+('b', 'b51006a2ff53aeba12ace847c4966c8f', 1),
+('c', '9e47a093203e76071bfc0145e45ab310', 1),
+('d', 'f8b196494d0a5cacda588686e8d6f31c', 1),
+('e', '6d382695b8fac7f0e0e3b9d2bc1e13b0', 0),
+('f', '27e7dc484d183d6ea718cc86b0f25cdf', 0),
+('g', '8d0718022bf53d0830e1d00613c9e2e9', 0),
+('h', 'c4b1a755ddcb11a356660035bd8674a9', 0),
+('i', '9f605d4e70d01e2400c258d35b4f08e8', 0),
+('j', '200449384d99310f7be2744cf5d80156', 0),
+('k', 'b2c4789b09c5921c8ed2ca485b945fcd', 0),
+('l', 'ed5d1646053647ac3594fe752da8d254', 0),
+('m', '7a734d71ce57e5a0d180e84045dc6318', 0),
+('n', 'd43e132f8ec57c3079af8726b7b0f441', 0),
+('o', 'a72e8d84af2246b93669cff80b9174e7', 0),
+('p', '797e1b7a573194a692cff4e1e630c0de', 0),
+('q', '1cb028c30e9a5e1eda0858da3c6edde8', 1),
+('r', '7203ad78a5281b13f5fd3e5e045e0f21', 0),
+('s', '40d62b360517872e3e2cb5d6bb462da1', 0),
+('t', '5f8bdda8d653b377ab6523ca14225b50', 0),
+('u', '03b77d37b0911a34733bbc950da40cb0', 0),
+('v', '74817cd1e633c7c85cffb266d2a7995b', 0),
+('w', 'a4671d3bba067bc917977227cbc42c79', 0),
+('x', '1dd900f1d50dc1d98aad94290a2d1e36', 0),
+('y', 'dcfb98e5ac62962ec980378fc8a5d690', 0),
+('z', '26d95af4e6217d871b09ac166eae9984', 0);
 
 --
 -- Index pour les tables exportées
@@ -150,7 +173,9 @@ ALTER TABLE `contact`
 -- Index pour la table `payment`
 --
 ALTER TABLE `payment`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_email_2` (`user_email`),
+  ADD KEY `user_email` (`user_email`);
 
 --
 -- Index pour la table `products`
@@ -172,7 +197,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Métadonnées

@@ -5,8 +5,16 @@ if (empty($_SESSION['user']) || $_SESSION['user']['admin'] == 0){
         exit();      
     }
 
+
+
 $admin = $_POST['admin'];
 $email = $_POST['email'];
+
+if ($_SESSION['user']['email'] == $email){
+    $_SESSION['admin_error'] = "Vous ne pouvez pas vous enlevez les droit d'administrateur !";
+    header('Location:../../admin.php');//on le redirige sur la page d'accueil du site !
+    exit();
+}
 
 if ($admin == 0){
     $sql = "UPDATE user SET admin=1 WHERE email=:email";
@@ -35,6 +43,3 @@ else if ($admin == 1){
     header('Location:../../admin.php');//on le redirige sur la page d'accueil du site !
     exit();
 }
-
-header('Location:../../admin.php');//on le redirige sur la page d'accueil du site !
-exit();

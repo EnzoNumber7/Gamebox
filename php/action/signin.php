@@ -24,7 +24,7 @@ $user = $pre->fetch(PDO::FETCH_ASSOC);
 if(empty($user)){ //vérifie si le resultat est vide !
 //non connecté
   $_SESSION['error']="Adresse Email ou Mot de Passe incorrect";
-  header('Location:signinPage.php');
+  header('Location:../../signinPage.php');
   exit();
 
 }else{

@@ -5,7 +5,7 @@ if (empty($_SESSION['user']) || $_SESSION['user']['admin'] == 0){
         exit();      
     }
 
-
+unset($_SESSION['admin_error']);
 
 $admin = $_POST['admin'];
 $email = $_POST['email'];
@@ -43,3 +43,6 @@ else if ($admin == 1){
     header('Location:../../admin.php');//on le redirige sur la page d'accueil du site !
     exit();
 }
+
+?>
+

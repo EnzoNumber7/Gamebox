@@ -21,63 +21,40 @@
     <?php require "php/components/nav.php"; ?>
 
     <?php
-    if (isset($_POST['credential'])){
-      if (!empty($_POST['credential'])){
-        if (empty($_COOKIE['g_csrf_token']) || empty($_POST['g_csrf_token']) || $_COOKIE['g_csrf_token'] != $_POST['g_csrf_token']){
-          $_SESSION['error'] = "ERROOOOOOOOOOOOOOR";
-          exit();
-        }
-      }
-      
-      $clientId = "696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com";
-      $client = new Google_Client(['client_id' => $clientId]);  // Specify the clientId of the app that accesses the backend
-      
-      $id_token = $_POST['credential'];
-      $user = $client->verifyIdToken($id_token);
-      if ($user) {
-        $_SESSION['user'] = $user;
-
-        // If request specified a G Suite domain:
-        //$domain = $payload['hd'];
-      } else {
-        $_SESSION['error'] = "FUCK";
-      }
-    }
-    // Si l'email, le mot de passe ont bien été renseigné dans le form et si l'utilisateur a appuyer sur le bouton Connexion
-      
-    else if (isset($_SESSION['user'])){
+    // ON VERIFIES SI L'UTILISATEUR EST CONNECTE
+    if (isset($_SESSION['user'])){
       ?>
       <p class="center">Vous êtes déjà connecté</p>
 
-      
+      <!-- BOUTON DECONNEXION -->
       <form class="center" method="post" action="logout.php">
         <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="logout">DECONNEXION</button>
       </form>
+      <!-- BOUTON ACCEUIL -->
       <div class="center">
         <a href="index.php" class="waves-effect waves-light btn-large button-style margin-top">Acceuil</a>
       </div>
 
       <div class="center">
         <?php
-          if(isset($_SESSION['user'])){
-            if ($_SESSION['user']['admin']==1){
-              ?>
-              <a href="admin.php" class="waves-effect waves-light btn-large button-style margin-top">Administrateur</a>
-              <?php
-            }
-          } ?>
+        // ON VERIFIE SI L'UTILISATEUR EST UN ADMIN
+          if ($_SESSION['user']['admin']==1){
+            ?>
+            <a href="admin.php" class="waves-effect waves-light btn-large button-style margin-top">Administrateur</a>
+            <?php
+          }
+           ?>
       </div>
       <?php
     }
-
     else
     {
-      echo isset($_SESSION['user']);
     ?>
             <h1 class="center"><b>CONNEXION</b></h1>
 
-
             <?php
+            // AFFICHAGE DES MESSAGE D'ERREUR OU DE SUCCES
+
             if (isset($_SESSION['error'])){
             ?>
             <p class="center error"><?php echo $_SESSION['error']; ?></p>
@@ -94,7 +71,7 @@
             <div class="container input-field">
                 <form class="center" method="post" action="php/action/signin.php">
                   <div class="col s12">
-                    <p >Addresse Email</p>
+                    <p >Adresse Email</p>
                     <input class="center" name="email" type="text" /><br />
                     <p>Mot de Passe</p>
                     <input class="center" name="password" type="password" />
@@ -111,14 +88,15 @@
             <p class="center">__________________________________________________</p>
             <p class="center">OU</p>
             
+
+            <!-- BOUTON CONNEXION GOOGLE -->
             <div id="g_id_onload"
               data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
               data-context="signin"
               data-ux_mode="popup"
-              data-login_uri="http://localhost/Gamebox/signinPage.php"
+              data-login_uri="http://localhost/Gamebox/php/action/googleSignin.php"
               data-auto_prompt="false">
           </div>
-
           <div class="g_id_signin margin-left"
               data-type="standard"
               data-shape="pill"
@@ -128,6 +106,9 @@
               data-logo_alignment="center"
               data-witdh="400px">
           </div>
+
+
+          <!-- BOUTON CONNEXION FACEBOOK -->
           <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -136,11 +117,8 @@
           xfbml      : true,
           version    : '{api-version}'
         });
-
         FB.AppEvents.logPageView();
-
       };
-
       (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
@@ -149,12 +127,12 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
-
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=740267983967555&autoLogAppEvents=1" nonce="2AGUpHaT"></script>
-
     <div class="fb-login-button margin-left" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
     
+
+    <!-- BOUTON CONNEXION PAYPAL -->
     <span id='paypal'></span>
     <script src='https://www.paypalobjects.com/js/external/api.js'></script>
     <script>
@@ -173,6 +151,8 @@
       });
     });
     </script>
+
+
     <?php
     }
     require "php/components/footer.php";

@@ -24,7 +24,7 @@
     // ON VERIFIES SI L'UTILISATEUR EST CONNECTE
     if (isset($_SESSION['user'])){
       ?>
-      <p class="center">Vous êtes déjà connecté</p>
+      <p class="center">Vous êtes connecté</p>
 
       <!-- BOUTON DECONNEXION -->
       <form class="center" method="post" action="logout.php">
@@ -88,6 +88,8 @@
             <p class="center">__________________________________________________</p>
             <p class="center">OU</p>
             
+            <!-- ESPACEMENT ENTRE LES BOUTONS -->
+            <div class="separator">&nbsp;</div>
 
             <!-- BOUTON CONNEXION GOOGLE -->
             <div id="g_id_onload"
@@ -131,35 +133,39 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=740267983967555&autoLogAppEvents=1" nonce="2AGUpHaT"></script>
     <div class="fb-login-button margin-left" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
     
-
-    <!-- BOUTON CONNEXION PAYPAL -->
-    <span id='paypal'></span>
-    <script src='https://www.paypalobjects.com/js/external/api.js'></script>
-    <script>
-    paypal.use( ['login'], function (login) {
-      login.render ({
-        "appid":"AXJrQxn9J2jdbwr2Hs4b7_LgbcfshOjBvlW154bNMzYDjBRiw122vBB03CoGG1lInuEOVeHljXVI0yKB",
-        "authend":"sandbox",
-        "containerid":"paypal",
-        "responseType":"code",
-        "locale":"fr-fr",
-        "buttonType":"LWP",
-        "buttonShape":"pill",
-        "buttonSize":"lg",
-        "fullPage":"true",
-        "returnurl":"localhost/Gamebox/index.php"
+    <!-- ESPACEMENT ENTRE LES BOUTONS -->
+    <div class="separator">
+      <!-- BOUTON CONNEXION PAYPAL -->  
+      <span id='paypal'></span>
+      <script>
+      paypal.use( ['login'], function (login) {
+        login.render ({
+          "appid":"AXJrQxn9J2jdbwr2Hs4b7_LgbcfshOjBvlW154bNMzYDjBRiw122vBB03CoGG1lInuEOVeHljXVI0yKB",
+          "authend":"sandbox",
+          "scopes":"email",
+          "containerid":"paypal",
+          "responseType":"code id_Token",
+          "locale":"fr-fr",
+          "buttonType":"LWP",
+          "buttonShape":"pill",
+          "buttonSize":"lg",
+          "fullPage":"true",
+          "returnurl":"http://localhost/Gamebox/signinPage.php"
+        });
       });
-    });
     </script>
+    </div>
 
+    
 
     <?php
     }
     require "php/components/footer.php";
     ?>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script> 
-      <!-- JQuery -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src='https://www.paypalobjects.com/js/external/api.js'></script>
+    <!-- JQuery -->
     <script src="script/jquery.min.js"></script>
     <!-- Materialize -->
     <script src="script/materialize.min.js"></script>

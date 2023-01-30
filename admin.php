@@ -78,7 +78,7 @@
                 </div>
                 <div class="col s6 l3">
                     <form method="post" action="php/action/delete_user.php" class="center">
-                        <input type="hidden" name="email" value="<?php echo $user['email'];?>">
+                        <input type="hidden" name="id" value="<?php echo $user['email'];?>">
                         <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="delete">Supprimer</button>
                     </form>
                 </div>

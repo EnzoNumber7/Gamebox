@@ -44,7 +44,7 @@
     
     <ul class="collapsible">
       <li>
-          <div class="collapsible-header main-color"><h2>Utilisateur</h2></div>
+          <div class="collapsible-header main-color"><h2>Utilisateurs</h2></div>
           <div class="collapsible-body main-color">
           <?php
           foreach($users as $user){
@@ -146,7 +146,7 @@
             $productsdata = $pre->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
-            <h3>Modifier les Produits</h3>
+            <h3 class="center">Modifier les Produits</h3>
 
             <?php foreach($productsdata as $products){ ?>
                 
@@ -168,7 +168,7 @@
         </div>
       </li>
       <li>
-      <div class="collapsible-header main-color"><h3>Mentions Légales et CGV</h3></div>
+      <div class="collapsible-header main-color"><h2>Mentions Légales et CGV</h2></div>
             <div class="collapsible-body main-color">
               <?php
               $sql = "Select * from CGV WHERE id=5";

@@ -25,13 +25,20 @@
     <title>Gamebox</title>
   </head>
 
+  <?php
+  $sql = "SELECT * FROM admin_gestion";
+  $pre = $pdo->prepare($sql);
+  $pre->execute();
+  $homedata = $pre->fetch(PDO::FETCH_ASSOC);
+  ?>
+
   <body>
   <?php require "php/components/nav.php"; ?>
 
   <div class="scorn valign-center text-color center">
-    <img class="scorn-width" src="img/scorn.png" alt="fond page d'acceuil - Gamebox">
+    <img class="scorn-width" src=<?php echo $homedata['bg_image'] ?> alt="fond page d'acceuil - Gamebox">
     <div class="centered-title">
-      <h1 class="title-font">Box Halloween</h1>
+      <h1 class="title-font"><?php echo $homedata['theme_title'] ?></h1>
       <a href="#scroll" class="text-color hide-on-med-and-down"><iconify-icon icon="teenyicons:mouse-outline" width="50" height="75"></a>
         <br>
       <a href="#scroll" class="text-color hide-on-med-and-down"></iconify-icon><iconify-icon icon="ic:round-arrow-drop-down" width="50" height="50"></iconify-icon></a>

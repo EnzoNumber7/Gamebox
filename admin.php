@@ -24,8 +24,6 @@
 
   <body>
 
-  
-
     <?php require "php/components/nav.php"; ?> 
 
     <h1 class="center">Page Administrateur</h1>
@@ -91,33 +89,37 @@
       </li>
       
       <li>
-          <div class="collapsible-header main-color"><h2 class="center">Mails de la Page Contact</h2></div>
-          <div class="collapsible-body main-color">
-          <?php
+        <div class="collapsible-header main-color"><h2 class="center">Mails de la Page Contact</h2></div>
+        <div class="collapsible-body main-color">
+    <?php   
+      $sql = "Select * from contact";
+      $pre = $pdo->prepare($sql);
+      $pre->execute();
+      $contacts = $pre->fetchAll(); 
 
-            $sql = "Select * from contact";
-            $pre = $pdo->prepare($sql);
-            $pre->execute();
-            $users = $pre->fetchAll(); 
+      foreach($contacts as $contact){
+      ?>
 
-            foreach($users as $user){
-            ?>
+    <div class="container input-field">
+      <div class="row center">
+          <div class="col l6 m12 s12">
+              <p> De : <?php echo $contact['email']; ?></p>
+              <p>Objet : <?php echo $contact['object']; ?></p>
+              <p class="message-border"><?php echo $contact['text']; ?></p>
+          </div>
+          <div class="col l6 m12 s12">
+              <h3>Réponse</h3>
+              <form method="post" action="php/action/answer.php">
+                  <textarea class="center" name="answer" cols="30" rows="10"></textarea> <br>
+                  <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer"/>
+              </form>
+          </div>
+      </div>
+    </div>
+    <?php } ?>
 
-            <div class="container input-field">
-              <div class="row center">
-                  <div class="col l6 m12 s12">
-                      <h3>Mails Reçus</h3>
-                      <p><?php echo $user['email']; ?></p>
-                  </div>
-                  <div class="col l6 m12 s12">
-                      <h3>Réponse</h3>
-                      <form method="post" action="">
-                          <textarea class="center" name="message" cols="30" rows="10"></textarea>
-                      </form>
-                  </div>
-              </div>
-            </div>
-            <?php } ?>
+
+            
           </div>
       </li>
       <li>

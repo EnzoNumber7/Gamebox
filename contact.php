@@ -19,19 +19,19 @@
   <body class="main-color" id="">
     <?php require "php/components/nav.php"; ?>
 
-            <h1 class="center"><b>CONTACT</b></h1>
-
-            <div class="container input-field">
-                <form class="center" method="post" action="php/action/mail.php">
-                    <p>Addresse Email : </p>
-                    <input class="center" name="email" type="text" /><br />
-                    <p>Objet : </p>
-                    <input class="center" name="object" type="text" />
-                    <p>Votre Message : </p>
-                    <textarea class="center" name="message" cols="30" rows="10"></textarea>
-                    <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer" />
-                </form>
-            </div>
+      <h1 class="center"><b>CONTACT</b></h1>
+      
+      <div class="container input-field">
+          <form class="center" method="post" action="php/action/mail.php">
+              <p>Addresse Email : </p>
+              <input class="center" name="email" type="text" /><br />
+              <p>Objet : </p>
+              <input class="center" name="object" type="text" />
+              <p>Votre Message : </p>
+              <textarea class="center" name="text" cols="30" rows="10"></textarea> <br>
+              <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer" />
+          </form>
+      </div>
             
     <?php
     require "php/components/footer.php";

@@ -160,6 +160,11 @@ p{
     padding-right: 5%;
 }
 
+.message-border{
+    border-radius: 20;
+    border: solid var(--text-color);
+}
+
 /* Page Produit */
 
 .content-title{

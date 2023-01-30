@@ -24,8 +24,6 @@
 
   <body>
 
-  
-
     <?php require "php/components/nav.php"; ?> 
 
     <h1 class="center">Page Administrateur</h1>
@@ -91,59 +89,8 @@
       </li>
       
       <li>
-          <div class="collapsible-header main-color"><h2 class="center">Mails de la Page Contact</h2></div>
-          <div class="collapsible-body main-color">
-          <?php
-
-            $sql = "Select * from contact";
-            $pre = $pdo->prepare($sql);
-            $pre->execute();
-            $users = $pre->fetchAll(); 
-  
-  $sql = "Select * from user";
-  $pre = $pdo->prepare($sql);
-  $pre->execute();
-  $users = $pre->fetchAll(); 
-
-  foreach($users as $user){
-    ?>
-    <div class="container row">
-        <div class="col s6 l3">
-            <p>Adresse Mail : <?php echo $user['email']?></p>
-        </div>
-        <div class="col s6 l3">
-            <p><?php 
-            if ($user['admin']==1){
-                echo "Administrateur : Oui";
-            }
-            else{
-                echo "Administrateur : Non";
-            }?></p> 
-        </div>
-        <div class="col s6 l3">
-            <form class="center" method="post" action="php/action/admin_user.php">
-                <input type="hidden" name="email" value="<?php echo $user['email'];?>">
-                <input type="hidden" name="admin" value="<?php echo $user['admin'];?>">
-                <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="admin">
-                <?php if ($user['admin']==1){
-                    echo "Démettre Admin";
-                }
-                else{
-                    echo "Mettre Admin";
-                }?>
-                </button>
-            </form>
-        </div>
-        <div class="col s6 l3">
-            <form method="post" action="php/action/delete_user.php" class="center">
-                <input type="hidden" name="email" value="<?php echo $user['email'];?>">
-                <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="delete">Supprimer</button>
-            </form>
-        </div>
-    </div>
-    <?php }?>
-
-    <h2 class="center">Mails de la Page Contact</h2>
+        <div class="collapsible-header main-color"><h2 class="center">Mails de la Page Contact</h2></div>
+        <div class="collapsible-body main-color">
     <?php   
       $sql = "Select * from contact";
       $pre = $pdo->prepare($sql);
@@ -153,21 +100,26 @@
       foreach($contacts as $contact){
       ?>
 
-            <div class="container input-field">
-              <div class="row center">
-                  <div class="col l6 m12 s12">
-                      <h3>Mails Reçus</h3>
-                      <p><?php echo $user['email']; ?></p>
-                  </div>
-                  <div class="col l6 m12 s12">
-                      <h3>Réponse</h3>
-                      <form method="post" action="">
-                          <textarea class="center" name="message" cols="30" rows="10"></textarea>
-                      </form>
-                  </div>
-              </div>
-            </div>
-            <?php } ?>
+    <div class="container input-field">
+      <div class="row center">
+          <div class="col l6 m12 s12">
+              <p> De : <?php echo $contact['email']; ?></p>
+              <p>Objet : <?php echo $contact['object']; ?></p>
+              <p class="message-border"><?php echo $contact['text']; ?></p>
+          </div>
+          <div class="col l6 m12 s12">
+              <h3>Réponse</h3>
+              <form method="post" action="php/action/answer.php">
+                  <textarea class="center" name="answer" cols="30" rows="10"></textarea> <br>
+                  <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer"/>
+              </form>
+          </div>
+      </div>
+    </div>
+    <?php } ?>
+
+
+            
           </div>
       </li>
       <li>

@@ -153,9 +153,9 @@
                 <form class="input-field center" method="post" action="php/action/productEdit.php" enctype="multipart/form-data">
                 <h4>Produit <?php echo $products['id']; ?></h4>
                 <h5>Nom</h5>
-                <input name="name" type="text" value="<?php echo $products['product_name']?>"/>
+                <input name="product_name" type="text" value="<?php echo $products['product_name']?>"/>
                 <h5>Description</h5>
-                <textarea class="center" name="description" cols="30" rows="10"><?php echo $products['product_desc'] ?></textarea>
+                <textarea class="center" name="product_desc" cols="30" rows="10"><?php echo $products['product_desc'] ?></textarea>
                 <h5>Image Acceuil</h5>
                 <input type="file" name="img"/>
                 <h5>Image Page Produit</h5>

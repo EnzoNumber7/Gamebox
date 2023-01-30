@@ -11,21 +11,21 @@ move_uploaded_file($_FILES['img_2']['tmp_name'],"../../".$destination_img_2);
 
 $sql = "SELECT * FROM products";
 $dataBinded=array(
-    ':produc_name'   => $_POST['name'],
-    ':product_desc'   => $_POST['description'],
     ':img'   => $destination_img,
+    ':product_name'   => $_POST['product_name'],
+    ':product_desc'   => $_POST['product_desc'],
     ':img_2'   => $destination_img_2
 );
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 $data = $pre->fetch(PDO::FETCH_ASSOC);
 
-$sql="UPDATE projects SET
-    product_name=:product_name,
-    product_desc=:product_desc,
-    img=:img,
-    img2=:img2
-    WHERE id=:id";
+$sql="UPDATE products SET
+    img = :img,
+    product_name = :product_name,
+    product_desc = :product_desc,
+    img2 = :img2
+    WHERE id = :id";
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 

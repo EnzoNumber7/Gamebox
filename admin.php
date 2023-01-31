@@ -169,41 +169,9 @@
         </div>
       </li>
       <li>
-      <div class="collapsible-header main-color"><h2>Mentions Légales et CGV</h2></div>
+      <div class="collapsible-header main-color"><h2 class="center">Mentions Légales et Conditions Générales de Vente</h2></div>
             <div class="collapsible-body main-color">
-              <?php
-              $sql = "Select * from CGV WHERE id=5";
-              $pre = $pdo->prepare($sql);
-              $pre->execute();
-              $element = $pre->fetch(PDO::FETCH_ASSOC);?>
                 <div class="row center input-field">
-                  <div class="col s12 l6">
-                     <h2> Mentions Légales </h2>
-                      <form method="post" action="">
-                        <p>Titre de la Page</p>
-                        <textarea class="center" name="page_title" cols="30" rows="10"><?php echo $element['page_title'] ?></textarea>
-                        <p>Sous Titre</p>
-                        <textarea class="center" name="title" cols="30" rows="10"><?php echo $element['title'] ?></textarea>
-                        <p>Paragraphe</p>
-                        <textarea class="center" name="paragraph" cols="30" rows="10"><?php echo $element['paragraph'] ?></textarea>
-                        <p>Article 1</p>
-                        <input class="center" name="article1" type="text" value="<?php echo $element['article1'] ?>" />
-                        <p>Article 1 - Texte</p>
-                        <textarea class="center" name="text_article1" cols="30" rows="10"><?php echo $element['text_article1'] ?></textarea>
-                        <p>Article 2</p>
-                        <input class="center" name="article2" type="text" value="<?php echo $element['article2'] ?>"/>
-                        <p>Article 2 - Texte</p>
-                        <textarea class="center" name="text_article2" cols="30" rows="10"><?php echo $element['text_article2'] ?></textarea>
-                        <p>Article 3</p>
-                        <input class="center" name="article3" type="text" value="<?php echo $element['article3'] ?>"/>
-                        <p>Article 3 - Texte</p>
-                        <textarea class="center" name="text_article3" cols="30" rows="10"><?php echo $element['text_article3'] ?></textarea>
-                        <p>Article 4</p>
-                        <input class="center" name="article4" type="text" value="<?php echo $element['article4'] ?>"/>
-                        <p>Article 4 - Texte</p>
-                        <textarea class="center" name="text_article4" cols="30" rows="15"><?php echo $element['text_article4'] ?></textarea>
-                      </form>
-                  </div>
                   <?php
                   $sql = "Select * from CGV WHERE id=6";
                   $pre = $pdo->prepare($sql);
@@ -211,22 +179,27 @@
                   $element = $pre->fetch(PDO::FETCH_ASSOC);?>
 
                   <div class="col s12 l6">
-                    <h2> Conditions Générales de Vente </h2>
-                    <form method="post" action="">
+                    <h3> Conditions Générales de Vente </h3>
+                    <form method="post" action="php/action/updateCGV.php">
+                        <input type="hidden" name="id" value="<?php echo $element['id'];?>">
                         <p>Sous Titre</p>
                         <textarea class="center" name="title" cols="30" rows="10"><?php echo $element['title'] ?></textarea>
                         <p>Article 1</p>
                         <input class="center" name="article1" type="text" value="<?php echo $element['article1'] ?>" />
                         <p>Article 1 - Texte</p>
-                        <textarea class="center" name="text_article1" cols="30" rows="10"><?php echo $element['text_article1'] ?></textarea>
+                        <textarea class="center" name="text_article1" cols="30" rows="30"><?php echo $element['text_article1'] ?></textarea>
                         <p>Article 2</p>
                         <input class="center" name="article2" type="text" value="<?php echo $element['article2'] ?>"/>
                         <p>Article 2 - Texte</p>
-                        <textarea class="center" name="text_article2" cols="30" rows="10"><?php echo $element['text_article2'] ?></textarea>
+                        <textarea class="center" name="text_article2" cols="30" rows="30"><?php echo $element['text_article2'] ?></textarea>
                         <p>Article 3</p>
                         <input class="center" name="article3" type="text" value="<?php echo $element['article3'] ?>"/>
                         <p>Article 3 - Texte</p>
-                        <textarea class="center" name="text_article3" cols="30" rows="10"><?php echo $element['text_article3'] ?></textarea>
+                        <textarea class="center" name="text_article3" cols="30" rows="20"><?php echo $element['text_article3'] ?></textarea>
+                        <p>Article 3 Bis</p>
+                        <input class="center" name="article3_bis" type="text" value="<?php echo $element['article3_bis'] ?>"/>
+                        <p>Article 3 Bis - Texte</p>
+                        <textarea class="center" name="text_article3_bis" cols="30" rows="40"><?php echo $element['text_article3_bis'] ?></textarea>
                         <p>Article 4</p>
                         <input class="center" name="article4" type="text" value="<?php echo $element['article4'] ?>"/>
                         <p>Article 4 - Texte</p>
@@ -234,7 +207,7 @@
                         <p>Article 5</p>
                         <input class="center" name="article5" type="text" value="<?php echo $element['article5'] ?>" />
                         <p>Article 5 - Texte</p>
-                        <textarea class="center" name="text_article5" cols="30" rows="15"><?php echo $element['text_article5'] ?></textarea>
+                        <textarea class="center" name="text_article5" cols="30" rows="50"><?php echo $element['text_article5'] ?></textarea>
                         <p>Article 6</p>
                         <input class="center" name="article6" type="text" value="<?php echo $element['article6'] ?>" />
                         <p>Article 6 - Texte</p>
@@ -246,11 +219,11 @@
                         <p>Article 8</p>
                         <input class="center" name="article8" type="text" value="<?php echo $element['article8'] ?>" />
                         <p>Article 8 - Texte</p>
-                        <textarea class="center" name="text_article8" cols="30" rows="75"><?php echo $element['text_article8'] ?></textarea>
+                        <textarea class="center" name="text_article8" cols="30" rows="80"><?php echo $element['text_article8'] ?></textarea>
                         <p>Article 9</p>
                         <input class="center" name="article9" type="text" value="<?php echo $element['article9'] ?>" />
                         <p>Article 9 - Texte</p>
-                        <textarea class="center" name="text_article9" cols="30" rows="75"><?php echo $element['text_article9'] ?></textarea>
+                        <textarea class="center" name="text_article9" cols="30" rows="85"><?php echo $element['text_article9'] ?></textarea>
                         <p>Article 10</p>
                         <input class="center" name="article10" type="text" value="<?php echo $element['article10'] ?>" />
                         <p>Article 10 - Texte</p>
@@ -262,12 +235,55 @@
                         <p>Article 12</p>
                         <input class="center" name="article12" type="text" value="<?php echo $element['article12'] ?>" />
                         <p>Article 12 - Texte</p>
-                        <textarea class="center" name="text_article12" cols="30" rows="15"><?php echo $element['text_article12'] ?></textarea>
-
+                        <textarea class="center" name="text_article12" cols="30" rows="20"><?php echo $element['text_article12'] ?></textarea>
+                        <div>
+                           <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="uptdate">Modifier</button>
+                        </div>
+                       
                       </form>
                   </div>
+                  <?php
+                  $sql = "Select * from CGV WHERE id=5";
+                  $pre = $pdo->prepare($sql);
+                  $pre->execute();
+                  $element = $pre->fetch(PDO::FETCH_ASSOC);?>
+                    <div class="col s12 l6">
+                      <h3> Mentions Légales </h3>  
+                        <form method="post" action="php/action/updateCGV.php">
+                          <input type="hidden" name="id" value="<?php echo $element['id'];?>">
+                          <p>Titre de la Page</p>
+                          <textarea class="center" name="page_title" cols="30" rows="10"><?php echo $element['page_title'] ?></textarea>
+                          <p>Sous Titre</p>
+                          <textarea class="center" name="title" cols="30" rows="10"><?php echo $element['title'] ?></textarea>
+                          <p>Paragraphe</p>
+                          <textarea class="center" name="paragraph" cols="30" rows="10"><?php echo $element['paragraph'] ?></textarea>
+                          <p>Article 1</p>
+                          <input class="center" name="article1" type="text" value="<?php echo $element['article1'] ?>" />
+                          <p>Article 1 - Texte</p>
+                          <textarea class="center" name="text_article1" cols="30" rows="10"><?php echo $element['text_article1'] ?></textarea>
+                          <p>Article 2</p>
+                          <input class="center" name="article2" type="text" value="<?php echo $element['article2'] ?>"/>
+                          <p>Article 2 - Texte</p>
+                          <textarea class="center" name="text_article2" cols="30" rows="10"><?php echo $element['text_article2'] ?></textarea>
+                          <p>Article 3</p>
+                          <input class="center" name="article3" type="text" value="<?php echo $element['article3'] ?>"/>
+                          <p>Article 3 - Texte</p>
+                          <textarea class="center" name="text_article3" cols="30" rows="10"><?php echo $element['text_article3'] ?></textarea>
+                          <p>Article 4</p>
+                          <input class="center" name="article4" type="text" value="<?php echo $element['article4'] ?>"/>
+                          <p>Article 4 - Texte</p>
+                          <textarea class="center" name="text_article4" cols="30" rows="15"><?php echo $element['text_article4'] ?></textarea>
+                          <div>
+                           <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="uptdate">Modifier</button>
+                        </div>
+                        </form>
+                    </div>
                      
                 </div>
+                
+              
+            </div>
+          </div>
       </li>
     </ul>
 

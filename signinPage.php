@@ -83,81 +83,80 @@
               
             </div>
             <div class="center">
-              <a class="text-color" href="signupPage.php">Crée un Compte</a>
+              <a class="text-color" href="signupPage.php">Créer un Compte</a>
             </div>
-            <p class="center">__________________________________________________</p>
+            <div>&nbsp;</div>
+            <div class="container cline"></div>
             <p class="center">OU</p>
             
-            <!-- ESPACEMENT ENTRE LES BOUTONS -->
-            <div class="separator">&nbsp;</div>
-
-            <!-- BOUTON CONNEXION GOOGLE -->
-            <div id="g_id_onload"
-              data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
-              data-context="signin"
-              data-ux_mode="popup"
-              data-login_uri="http://localhost/Gamebox/php/action/googleSignin.php"
-              data-auto_prompt="false">
-          </div>
-          <div class="g_id_signin margin-left"
-              data-type="standard"
-              data-shape="pill"
-              data-theme="outline"
-              data-text="continue_with"
-              data-size="large"
-              data-logo_alignment="center"
-              data-witdh="400px">
-          </div>
-
-
-          <!-- BOUTON CONNEXION FACEBOOK -->
-          <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '{your-app-id}',
-          cookie     : true,
-          xfbml      : true,
-          version    : '{api-version}'
-        });
-        FB.AppEvents.logPageView();
-      };
-      (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=740267983967555&autoLogAppEvents=1" nonce="2AGUpHaT"></script>
-    <div class="fb-login-button margin-left" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
-    
-    <!-- ESPACEMENT ENTRE LES BOUTONS -->
-    <div class="separator">
-      <!-- BOUTON CONNEXION PAYPAL -->  
-      <span id='paypal'></span>
-      <script>
-      paypal.use( ['login'], function (login) {
-        login.render ({
-          "appid":"AXJrQxn9J2jdbwr2Hs4b7_LgbcfshOjBvlW154bNMzYDjBRiw122vBB03CoGG1lInuEOVeHljXVI0yKB",
-          "authend":"sandbox",
-          "scopes":"email",
-          "containerid":"paypal",
-          "responseType":"code id_Token",
-          "locale":"fr-fr",
-          "buttonType":"LWP",
-          "buttonShape":"pill",
-          "buttonSize":"lg",
-          "fullPage":"true",
-          "returnurl":"http://localhost/Gamebox/signinPage.php"
-        });
-      });
-    </script>
-    </div>
-
-    
-
+            <div class="container">
+              <div class="row center">
+                <!-- BOUTON CONNEXION GOOGLE -->
+                <div id="g_id_onload"
+                  data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
+                  data-context="signin"
+                  data-ux_mode="popup"
+                  data-login_uri="http://localhost/Gamebox/php/action/googleSignin.php"
+                  data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin"
+                  data-type="standard"
+                  data-shape="pill"
+                  data-theme="outline"
+                  data-text="continue_with"
+                  data-size="medium"
+                  data-logo_alignment="center"
+                  data-witdh="400px">
+                </div>
+              </div>
+              <!-- ESPACEMENT ENTRE LES BOUTONS -->
+              <div>&nbsp;</div>
+              <div class="row center">
+                <!-- BOUTON CONNEXION FACEBOOK -->
+                <script>
+                window.fbAsyncInit = function() {
+                  FB.init({
+                    appId      : '{your-app-id}',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : '{api-version}'
+                  });
+                  FB.AppEvents.logPageView();
+                };
+                (function(d, s, id){
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) {return;}
+                  js = d.createElement(s); js.id = id;
+                  js.src = "https://connect.facebook.net/en_US/sdk.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+                </script>
+                <div id="fb-root"></div>
+                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=740267983967555&autoLogAppEvents=1" nonce="2AGUpHaT"></script>
+                <div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+              </div>
+              <div class="row">
+                <!-- BOUTON CONNEXION PAYPAL -->  
+                <span id='paypal'></span>
+                <script>
+                paypal.use( ['login'], function (login) {
+                  login.render ({
+                    "appid":"AXJrQxn9J2jdbwr2Hs4b7_LgbcfshOjBvlW154bNMzYDjBRiw122vBB03CoGG1lInuEOVeHljXVI0yKB",
+                    "authend":"sandbox",
+                    "scopes":"email",
+                    "containerid":"paypal",
+                    "responseType":"code id_Token",
+                    "locale":"fr-fr",
+                    "buttonType":"LWP",
+                    "buttonShape":"pill",
+                    "buttonSize":"lg",
+                    "fullPage":"true",
+                    "returnurl":"http://localhost/Gamebox/signinPage.php"
+                  });
+                });
+                </script>
+              </div>
+            </div>
     <?php
     }
     require "php/components/footer.php";

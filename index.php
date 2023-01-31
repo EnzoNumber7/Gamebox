@@ -71,60 +71,95 @@
     <!-- Contenu de la box -->
     <h2 class="title-font center space">Contenu de la Gamebox</h2>
 
+    <?php
+    $sql = "SELECT * FROM products WHERE id=1";
+    $pre = $pdo->prepare($sql);
+    $pre->execute();
+    $product1data = $pre->fetch(PDO::FETCH_ASSOC);
+    ?>
+
     <div class="row">
       <div class="col l4 m12 s12">
         <div class="card card-config">
           <div class="card-image">
-            <img class="img-size" src="img/deadbydaylight.jpg" alt="un jeu populaire - Gamebox">
+            <img class="img-size" src=<?php echo $product1data['img'] ?> alt="un jeu populaire - Gamebox">
           </div>
           <div class="card-content center card-text">
-            <p>Dead by Daylight</p>
+            <p><?php echo $product1data['product_name'] ?></p>
           </div>
         </div>
       </div>
 
-      <div class="col l4 m12 s12">
-        <div class="card card-config">
-          <div class="card-image">
-            <img class="img-size" src="img/pumpkinjack.jpg" alt="un jeu indépendant - Gamebox">
-          </div>
-          <div class="card-content center card-text">
-            <p>Pumpkin Jack</p>
-          </div>
-        </div>
-      </div>
+      <?php
+      $sql = "SELECT * FROM products WHERE id=2";
+      $pre = $pdo->prepare($sql);
+      $pre->execute();
+      $product2data = $pre->fetch(PDO::FETCH_ASSOC);
+      ?>
 
       <div class="col l4 m12 s12">
         <div class="card card-config">
           <div class="card-image">
-            <img class="img-size" src="img/nendoroid.jpg" alt="goodies 1 - Gamebox">
+            <img class="img-size" src=<?php echo $product2data['img'] ?> alt="un jeu indépendant - Gamebox">
           </div>
           <div class="card-content center card-text">
-            <p>Nendoroid Le Piégeur</p>
+            <p><?php echo $product2data['product_name'] ?></p>
+          </div>
+        </div>
+      </div>
+
+      <?php
+      $sql = "SELECT * FROM products WHERE id=3";
+      $pre = $pdo->prepare($sql);
+      $pre->execute();
+      $product3data = $pre->fetch(PDO::FETCH_ASSOC);
+      ?>
+
+      <div class="col l4 m12 s12">
+        <div class="card card-config">
+          <div class="card-image">
+            <img class="img-size" src=<?php echo $product3data['img'] ?> alt="goodies 1 - Gamebox">
+          </div>
+          <div class="card-content center card-text">
+            <p><?php echo $product3data['product_name'] ?></p>
           </div>
         </div>
       </div>
     </div>
 
+    <?php
+    $sql = "SELECT * FROM products WHERE id=4";
+    $pre = $pdo->prepare($sql);
+    $pre->execute();
+    $product4data = $pre->fetch(PDO::FETCH_ASSOC);
+    ?>
+
     <div class="row">
       <div class="col l4 m12 s12 offset-l2">
         <div class="card card-config">
           <div class="card-image">
-            <img class="img-size" src="img/sh.jpg" alt="goodies 2 - Gamebox">
+            <img class="img-size" src=<?php echo $product4data['img'] ?> alt="goodies 2 - Gamebox">
           </div>
           <div class="card-content center card-text">
-            <p>T-Shirt Silent Hill</p>
+            <p><?php echo $product4data['product_name'] ?></p>
           </div>
         </div>
       </div>
 
+    <?php
+    $sql = "SELECT * FROM products WHERE id=5";
+    $pre = $pdo->prepare($sql);
+    $pre->execute();
+    $product5data = $pre->fetch(PDO::FETCH_ASSOC);
+    ?>
+
       <div class="col l4 m12 s12">
         <div class="card card-config">
           <div class="card-image">
-            <img class="img-size" class="img-size" src="img/mystery.png" alt="goodies mystère - Gamebox">
+            <img class="img-size" class="img-size" src=<?php echo $product5data['img'] ?> alt="goodies mystère - Gamebox">
           </div>
           <div class="card-content center card-text">
-            <p>Goodies Mystère</p>
+            <p><?php echo $product5data['product_name'] ?></p>
           </div>
         </div>
       </div>

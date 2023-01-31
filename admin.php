@@ -150,8 +150,9 @@
 
             <?php foreach($productsdata as $products){ ?>
                 
-                <form class="input-field center" method="post" action="php/action/productEdit.php" enctype="multipart/form-data">
+              <form class="input-field center" method="post" action="php/action/productEdit.php" enctype="multipart/form-data">
                 <h4>Produit <?php echo $products['id']; ?></h4>
+                <input type='hidden' name='id' value="<?php echo $products['id'] ?>" />
                 <h5>Nom</h5>
                 <input name="product_name" type="text" value="<?php echo $products['product_name']?>"/>
                 <h5>Description</h5>
@@ -161,7 +162,7 @@
                 <h5>Image Page Produit</h5>
                 <input type="file" name="img_2"/><br>
                 <input class="inputBtn button-style" type="submit" value="Modifier">
-            </form>
+              </form>
 
             <?php } ?>
 
@@ -270,7 +271,9 @@
       </li>
     </ul>
 
-    
+    <div class="center">
+      <a href="maintenance.php" class="waves-effect waves-light btn-large button-style">Maintenance</a>
+    </div>
 
     <?php require "php/components/footer.php"; ?>
       <!-- JQuery -->

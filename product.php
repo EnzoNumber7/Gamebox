@@ -33,20 +33,34 @@
 
     <div class="container">
 
-        <h1 class="center title-font product-page-title">Box d'Halloween</h1>
+        <?php
+        $sql = "SELECT * FROM admin_gestion";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $homedata = $pre->fetch(PDO::FETCH_ASSOC);
+        ?>
+
+        <h1 class="center title-font product-page-title"><?php echo $homedata['theme_title'] ?></h1>
 
         <h2 class="content-title"><iconify-icon inline icon="mdi:box-variant"></iconify-icon> Contenu de la Gamebox :</h2>
+
+        <?php
+        $sql = "SELECT * FROM products WHERE id=1";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $product1data = $pre->fetch(PDO::FETCH_ASSOC);
+        ?>
 
         <div class="row">
             <div class="col l4 m12 s12 offset-l2">
                 <div class="card-panel main-color center valign-wrapper product-card">
-                    <p>Jeu de survival d’horreur, multijoueur sorti en 2016. Sur le principe du cache-cache, tueurs et survivants s’affrontent. Vous pourrez choisir votre personnage ainsi que votre camps pour prendre part à la bataille.</p>
+                    <p><?php echo $product1data['product_desc'] ?></p>
                 </div>
             </div>
             <div class="col l4 m12 s12">
                 <div class="card card-config">
                 <div class="card-image">
-                    <img class="img-size" src="img/dbd.jpg" alt="un jeu populaire - Gamebox">
+                    <img class="img-size" src=<?php echo $product1data['img_2'] ?> alt="un jeu populaire - Gamebox">
                 </div>
                 <div class="card-content center card-text">
                     <p class="product-title">Un Jeu Populaire</p>
@@ -55,11 +69,18 @@
             </div>
         </div>
 
+        <?php
+        $sql = "SELECT * FROM products WHERE id=2";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $product2data = $pre->fetch(PDO::FETCH_ASSOC);
+        ?>
+
         <div class="row ">
             <div class="col l4 m12 s12 offset-l2">
                 <div class="card card-config">
                 <div class="card-image">
-                    <img class="img-size" src="img/pj.jpg" alt="un jeu indépendant - Gamebox">
+                    <img class="img-size" src=<?php echo $product2data['img_2'] ?> alt="un jeu indépendant - Gamebox">
                 </div>
                 <div class="card-content center card-text">
                     <p class="product-title">Un Jeu Indépendant</p>
@@ -68,40 +89,62 @@
             </div>
             <div class="col l4 m12 s12">
                 <div class="card-panel main-color valign-wrapper product-card">
-                    <p>Platformer 3D indépendant sortien 2020. A travers des paysages fantastiques et au travers d’un univers effrayant et amusant incarnez Jack, le seigneur à la tête de citrouille pour l’aider à triompher du bien.</p>
+                    <p><?php echo $product2data['product_desc'] ?></p>
                 </div>
             </div>
         </div>
 
+        <?php
+        $sql = "SELECT * FROM products WHERE id=3";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $product3data = $pre->fetch(PDO::FETCH_ASSOC);
+        ?>
+
         <div class="row">
             <div class="col l4 m12 s12">
                 <div class="card card-config">
-                <div class="card-image">
-                    <img class="img-size" src="img/sh.jpg" alt="goodies 1 - Gamebox">
-                </div>
-                <div class="card-content center card-text">
-                    <p>T-Shirt Silent Hill</p>
-                </div>
-                </div>
-            </div>
-            <div class="col l4 m12 s12">
-                <div class="card card-config">
-                <div class="card-image">
-                    <img class="img-size" src="img/nendoroid.jpg" alt="goodies 2 - Gamebox">
-                </div>
-                <div class="card-content center card-text">
-                    <p>Nendoroid Le Piégeur</p>
-                </div>
+                    <div class="card-image">
+                        <img class="img-size" src=<?php echo $product3data['img_2'] ?> alt="goodies 1 - Gamebox">
+                    </div>
+                    <div class="card-content center card-text">
+                        <p><?php echo $product3data['product_name'] ?></p>
+                    </div>
                 </div>
             </div>
+
+        <?php
+        $sql = "SELECT * FROM products WHERE id=4";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $product4data = $pre->fetch(PDO::FETCH_ASSOC);
+        ?>
+
             <div class="col l4 m12 s12">
                 <div class="card card-config">
-                <div class="card-image">
-                    <img class="img-size" src="img/mystery.png" alt="goodies mystère - Gamebox">
+                    <div class="card-image">
+                        <img class="img-size" src=<?php echo $product4data['img_2'] ?> alt="goodies 2 - Gamebox">
+                    </div>
+                    <div class="card-content center card-text">
+                        <p><?php echo $product4data['product_name'] ?></p>
+                    </div>
                 </div>
-                <div class="card-content center card-text">
-                    <p>Goodies Mystère</p>
-                </div>
+            </div>
+
+        <?php
+        $sql = "SELECT * FROM products WHERE id=5";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $product5data = $pre->fetch(PDO::FETCH_ASSOC);
+        ?>
+            <div class="col l4 m12 s12">
+                <div class="card card-config">
+                    <div class="card-image">
+                        <img class="img-size" src=<?php echo $product5data['img_2'] ?> alt="goodies mystère - Gamebox">
+                    </div>
+                    <div class="card-content center card-text">
+                        <p><?php echo $product5data['product_name'] ?></p>
+                    </div>
                 </div>
             </div>
         </div>

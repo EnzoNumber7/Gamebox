@@ -58,6 +58,10 @@ body{
     margin-top: 20px;
 }
 
+.separator{
+    margin:10px;
+}
+
 /* NavBar */
 
 nav{
@@ -192,6 +196,12 @@ p{
 .float-btn:hover{
     background-color: var(--main-color);
     color: var(--text-color);
+}
+
+/* Maintenance */
+
+.maintenance{
+    height: 100%;
 }
 
 /* Footer */

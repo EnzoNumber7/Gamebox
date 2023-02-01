@@ -17,8 +17,11 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Description for the Browser -->
+    <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
+
     <!-- Config Tab In Browser -->
-    <link rel="icon" href="">
+    <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
 

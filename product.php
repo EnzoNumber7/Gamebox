@@ -5,20 +5,18 @@
   <head>
     <meta charset="UTF-8">
 
-    <!-- Imort fonts -->
+    <!-- Imort Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
-    <!--Import materialize-->
+    <!--Import Materialize-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Description for the Browser -->
     <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
 

@@ -1,17 +1,28 @@
 <?php require_once "php/components/nav.php"; ?>
-<html>
-<head>
-  <title>Page de paiement</title>
-  <meta charset="utf-8">
-  <script src="https://www.paypal.com/sdk/js"></script>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
 
-  <!--Import materialize-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
-  <link type="text/css" rel="stylesheet" href="css/style.css">
+    <!-- Imort Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat&display=swap" rel="stylesheet">
 
+    <!--Import Materialize-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
 
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-</head>
+    <!-- Description for the Browser -->
+    <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
+
+    <!-- Config Tab In Browser -->
+    <link rel="icon" href="img/gamebox.png">
+    <title>Gamebox</title>
+  </head>
 <body>
   <h1 class="title-font center">Panier/Paiement</h1>
 

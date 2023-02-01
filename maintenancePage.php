@@ -4,7 +4,7 @@ header('Retry-After: 3600'); ?>
 
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8">
 
     <!-- Imort Fonts -->
@@ -18,6 +18,9 @@ header('Retry-After: 3600'); ?>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Description for the Browser -->
+    <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
 
     <!-- Config Tab In Browser -->
     <link rel="icon" href="img/gamebox.png">

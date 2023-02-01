@@ -61,7 +61,7 @@
                     echo "Administrateur : Non"; } ?></p>
             </div>
             <div class="col s6 l3">
-              <form class="center" method="post" action="php/action/admin_user.php">
+              <form class="center" method="post" action="php/queries/adminUser.php">
                 <input type="hidden" name="email" value="<?php echo $user['email'];?>">
                 <input type="hidden" name="admin" value="<?php echo $user['admin'];?>">
                 <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="adminBtn">
@@ -73,7 +73,7 @@
               </form>
             </div>
             <div class="col s6 l3">
-              <form method="post" action="php/action/delete_user.php" class="center">
+              <form method="post" action="php/queries/deleteUser.php" class="center">
                 <input type="hidden" name="id" value="<?php echo $user['email'];?>">
                 <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="delete">Supprimer</button>
               </form>
@@ -105,7 +105,7 @@
               </div>
               <div class="col l6 m12 s12">
                 <h3>Réponse</h3>
-                <form method="post" action="php/action/answer.php">
+                <form method="post" action="php/queries/answer.php">
                     <textarea class="center" name="answer" cols="30" rows="10"></textarea> <br>
                     <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer"/>
                 </form>
@@ -128,7 +128,7 @@
 
             <h3 class="center">Modifier la Page d'Acceuil</h3>
 
-            <form class="input-field center" method="post" action="php/action/homeEdit.php" enctype="multipart/form-data">
+            <form class="input-field center" method="post" action="php/queries/homeEdit.php" enctype="multipart/form-data">
                 <h4>Nom de la box</h4>
                 <input name="theme_title" type="text" value="<?php echo $homedata['theme_title']?>"/>
                 <h4>Image de fond</h4>
@@ -147,7 +147,7 @@
 
             <?php foreach($productsdata as $products){ ?>
                 
-              <form class="input-field center" method="post" action="php/action/productEdit.php" enctype="multipart/form-data">
+              <form class="input-field center" method="post" action="php/queries/productEdit.php" enctype="multipart/form-data">
                 <h4>Produit <?php echo $products['id']; ?></h4>
                 <input type='hidden' name='id' value="<?php echo $products['id'] ?>" />
                 <h5>Nom</h5>
@@ -178,7 +178,7 @@
 
               <div class="col s12 l6">
                 <h3> Conditions Générales de Vente </h3>
-                <form method="post" action="php/action/updateCGV.php">
+                <form method="post" action="php/queries/updateCGV.php">
                   <input type="hidden" name="id" value="<?php echo $element['id'];?>">
                   <p>Sous Titre</p>
                   <textarea class="center" name="title" cols="30" rows="10"><?php echo $element['title'] ?></textarea>
@@ -247,7 +247,7 @@
             $element = $pre->fetch(PDO::FETCH_ASSOC);?>
             <div class="col s12 l6">
               <h3> Mentions Légales </h3>  
-              <form method="post" action="php/action/updateCGV.php">
+              <form method="post" action="php/queries/updateCGV.php">
                 <input type="hidden" name="id" value="<?php echo $element['id'];?>">
                 <p>Titre de la Page</p>
                 <textarea class="center" name="page_title" cols="30" rows="10"><?php echo $element['page_title'] ?></textarea>
@@ -288,7 +288,7 @@
     $maintenance = $pre->fetch(PDO::FETCH_ASSOC); ?>
    
     <!-- POSSIBILITES DE METTRE LE SITE EN MAINTENANCE -->
-    <form class="center" method="post" action="php/action/maintenance.php">
+    <form class="center" method="post" action="php/queries/maintenance.php">
       <input type="hidden" name="maintenance" value=<?php echo $maintenance['maintenance'] ;?>>
       <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="maintenanceBtn">
         <?php if ($maintenance['maintenance']==1){

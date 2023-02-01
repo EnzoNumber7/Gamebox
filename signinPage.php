@@ -38,7 +38,7 @@
       <p class="center">Vous êtes connecté</p>
 
       <!-- BOUTON DECONNEXION -->
-      <form class="center" method="post" action="php/action/logout.php">
+      <form class="center" method="post" action="php/queries/logout.php">
         <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="logout">DECONNEXION</button>
       </form>
 
@@ -66,7 +66,7 @@
       <?php } ?>
 
       <div class="container input-field">
-        <form class="center" method="post" action="php/action/signin.php">
+        <form class="center" method="post" action="php/queries/signin.php">
           <div class="col s12">
             <p>Adresse Email</p>
             <input class="center" name="email" type="text" /><br />
@@ -95,7 +95,7 @@
             data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
             data-context="signin"
             data-ux_mode="popup"
-            data-login_uri="http://localhost/Gamebox/php/action/googleSignin.php"
+            data-login_uri="http://localhost/Gamebox/php/queries/googleSignin.php"
             data-auto_prompt="false">
           </div>
           <div class="g_id_signin"

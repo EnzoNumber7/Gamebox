@@ -167,12 +167,12 @@
 
         <!-- BOUTON AJOUT AU PANIER POUR GRAND ECRAN -->
         <div class = "center hide-on-med-and-down">
-            <a href="php/action/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier "><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon>AJOUTER AU PANIER</a>
+            <a href="php/queries/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier "><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon>AJOUTER AU PANIER</a>
         </div>
 
         <!-- BOUTON AJOUT AU PANIER POUR PETIT ECRAN -->
         <div class="center hide-on-large-only">
-            <a href="php/action/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier"><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon></a>
+            <a href="php/queries/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier"><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon></a>
         </div>
 
     </div>

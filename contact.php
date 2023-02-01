@@ -36,7 +36,7 @@
       
     <div class="container input-field">
       <!-- FORMULAIRE DE CONTACT -->
-      <form class="center" method="post" action="php/action/mail.php">
+      <form class="center" method="post" action="php/queries/mail.php">
           <p>Addresse Email : </p>
           <input class="center" name="email" type="text" /><br />
           <p>Objet : </p>

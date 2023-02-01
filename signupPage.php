@@ -35,7 +35,7 @@
     <?php
     // SI L'EMAIL ET LE MOT DE PASSE ONT ETE RENSEIGNE DANS LE FORM ET QU'IL A APPUYE SUR CONNEXION
     if ((isset($_POST['email'])) || (isset($_POST['password'])) || (isset($_POST["sign"]))){
-        require_once "php/action/signup.php";  
+        require_once "php/queries/signup.php";  
       } else { ?>
       
     <h1 class="center title-font">CREER UN COMPTE</h1>

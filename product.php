@@ -149,12 +149,12 @@
             </div>
         </div>
 
-        <div class="center hide-on-med-and-down">
-            <a class="waves-effect waves-light btn-large button-style btn-panier"><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon> Ajouter au Panier</a>
+        <div class = "center hide-on-med-and-down">
+            <a href="php/action/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier "><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon>AJOUTER AU PANIER</a>
         </div>
 
         <div class="center hide-on-large-only">
-            <a class="waves-effect waves-light btn-large button-style btn-panier"><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon></a>
+            <a href="php/action/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier"><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30">AJOUTER AU PANIER</iconify-icon></a>
         </div>
 
     </div>

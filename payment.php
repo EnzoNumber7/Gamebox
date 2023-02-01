@@ -16,12 +16,50 @@
   <h1 class="title-font center">Panier/Paiement</h1>
 
   <div class="container light-border">
-    <h2><iconify-icon inline icon="ic:round-shopping-cart"></iconify-icon>Résumé du Panier :</h2>
-    <div class="row">  
-      <h3 class="col l4 m4 s4 underline">Produit</h3>
-      <h3 class="col l4 m4 s4 underline">Quantité</h3>
-      <h3 class="col l4 m4 s4 underline">Prix/u</h3>
-    </div>
+      <h2><iconify-icon inline icon="ic:round-shopping-cart"></iconify-icon>Résumé du Panier :</h2>
+      <?php
+      if (isset($_SESSION['user'])){
+        $email = $_SESSION['user']['email'];
+        $sql = "Select product_name,qte,price from payment WHERE user_email=:email";
+        $dataBinded = array(
+          ":email"=>$email
+        );
+        $pre = $pdo->prepare($sql);
+        $pre->execute($dataBinded);
+        $users = $pre->fetch(PDO::FETCH_ASSOC); ?>
+
+        <div class="row hide-on-small-only">  
+          <h3 class="col l4 m4 s4 underline center">Produit</h3>     
+          <h3 class="col l4 m4 s4 underline center">Quantité</h3> 
+          <h3 class="col l4 m4 s4 underline center">Prix/u</h3>
+          <p class="col l4 m4 s4 center"><?php echo $users['product_name'] ?></p>
+          <p class="col l4 m4 s4 center"><?php echo $users['qte'] ?></p>
+          <p class="col l4 m4 s4 center"><?php echo $users['price'] ?></p>
+        </div>
+        <div class=" hide-on-med-and-up">  
+          <h3 class="col l4 m4 s4 underline center">Produit</h3>     
+          <p class="col l4 m4 s4 center"><?php echo $users['product_name'] ?></p>
+          <h3 class="col l4 m4 s4 underline center">Quantité</h3> 
+          <p class="col l4 m4 s4 center"><?php echo $users['qte'] ?></p>
+          <h3 class="col l4 m4 s4 underline center">Prix/u</h3>
+          <p class="col l4 m4 s4 center"><?php echo $users['price'] ?></p>
+        </div>
+
+      <?php } 
+      else{ ?>
+        <div class="row hide-on-small-only ">  
+        <h3 class="col l4 m4 s4 underline center">Produit</h3>     
+        <h3 class="col l4 m4 s4 underline center">Quantité</h3> 
+        <h3 class="col l4 m4 s4 underline center">Prix/u</h3>
+        
+        <div class="row hide-on-med-and-up">  
+        <h3 class="col l4 m4 s4 underline center">Produit</h3>     
+        <h3 class="col l4 m4 s4 underline center">Quantité</h3> 
+        <h3 class="col l4 m4 s4 underline center">Prix/u</h3>
+
+      </div>
+      <?php }?>
+    
     
   </div>
 

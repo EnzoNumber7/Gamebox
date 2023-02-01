@@ -1,7 +1,7 @@
 <?php
 require_once "../config/config.php";
 
-$sql = "Select * from contact";
+$sql = "SELECT * FROM contact";
 $pre = $pdo->prepare($sql);
 $pre->execute();
 $contacts = $pre->fetchAll(); 

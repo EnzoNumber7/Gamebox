@@ -33,7 +33,7 @@
 
   if($maintenance['maintenance']==1){
     header('Location: maintenancePage.php');
-  }?>
+  } ?>
 
   <body>
 
@@ -67,12 +67,12 @@
             </div>
             <div class="col l4 m12 s12">
                 <div class="card card-config">
-                <div class="card-image">
-                    <img class="img-size" src=<?php echo $product1data['img_2'] ?> alt="un jeu populaire - Gamebox">
-                </div>
-                <div class="card-content center card-text">
-                    <p class="product-title">Un Jeu Populaire</p>
-                </div>
+                    <div class="card-image">
+                        <img class="img-size" src=<?php echo $product1data['img_2'] ?> alt="un jeu populaire - Gamebox">
+                    </div>
+                    <div class="card-content center card-text">
+                        <p class="product-title">Un Jeu Populaire</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,12 +87,12 @@
         <div class="row ">
             <div class="col l4 m12 s12 offset-l2">
                 <div class="card card-config">
-                <div class="card-image">
-                    <img class="img-size" src=<?php echo $product2data['img_2'] ?> alt="un jeu indépendant - Gamebox">
-                </div>
-                <div class="card-content center card-text">
-                    <p class="product-title">Un Jeu Indépendant</p>
-                </div>
+                    <div class="card-image">
+                        <img class="img-size" src=<?php echo $product2data['img_2'] ?> alt="un jeu indépendant - Gamebox">
+                    </div>
+                    <div class="card-content center card-text">
+                        <p class="product-title">Un Jeu Indépendant</p>
+                    </div>
                 </div>
             </div>
             <div class="col l4 m12 s12">
@@ -169,7 +169,7 @@
 
     <div class="fixed-action-btn">
         <a href="#nav" class="btn-floating btn-large float-btn">
-        <iconify-icon icon="material-symbols:keyboard-arrow-up-rounded" width="50" height="50"></iconify-icon>
+            <iconify-icon icon="material-symbols:keyboard-arrow-up-rounded" width="50" height="50"></iconify-icon>
         </a>
     </div>
 
@@ -183,4 +183,6 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
     <!-- Import Our JS -->
     <script src="script/script.js"></script>
+    
   </body>
+</html>

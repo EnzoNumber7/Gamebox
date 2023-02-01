@@ -1,4 +1,5 @@
 <?php require_once "php/config/config.php"; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -24,25 +25,34 @@
     <title>Gamebox</title>
   </head>
 
-  <body class="main-color" id="">
+  <body class="main-color">
+
     <?php require "php/components/nav.php"; ?>
 
-      <h1 class="center"><b>CONTACT</b></h1>
+    <h1 class="center"><b>CONTACT</b></h1>
       
-      <div class="container input-field">
-          <form class="center" method="post" action="php/action/mail.php">
-              <p>Addresse Email : </p>
-              <input class="center" name="email" type="text" /><br />
-              <p>Objet : </p>
-              <input class="center" name="object" type="text" />
-              <p>Votre Message : </p>
-              <textarea class="center" name="text" cols="30" rows="10"></textarea> <br>
-              <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="send">ENVOYER</button>
-          </form>
-      </div>
+    <div class="container input-field">
+        <form class="center" method="post" action="php/action/mail.php">
+            <p>Addresse Email : </p>
+            <input class="center" name="email" type="text" /><br />
+            <p>Objet : </p>
+            <input class="center" name="object" type="text" />
+            <p>Votre Message : </p>
+            <textarea class="center" name="text" cols="30" rows="10"></textarea> <br>
+            <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="send">ENVOYER</button>
+        </form>
+    </div>
             
-    <?php
-    require "php/components/footer.php";
-    ?>
-    </body>
+    <?php require "php/components/footer.php"; ?>
+
+    <!-- JQuery -->
+    <script src="script/jquery.min.js"></script>
+    <!-- Materialize -->
+    <script src="script/materialize.min.js"></script>
+    <!-- Import Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <!-- Import Our JS -->
+    <script src="script/script.js"></script>
+
+  </body>
 </html>

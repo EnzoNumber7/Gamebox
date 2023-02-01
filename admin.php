@@ -31,61 +31,50 @@
 
     <h1 class="center">Page Administrateur</h1>
 
-    <?php
-    if (isset($_SESSION['admin_error'])){
-      ?>
+    <?php if (isset($_SESSION['admin_error'])){ ?>
       <p class="center error"><?php echo $_SESSION['admin_error']; ?></p>
-    <?php
-    }
-      ?>
+    <?php } ?>
 
     <?php
-    $sql = "Select * from user";
+    $sql = "SELECT * FROM user";
     $pre = $pdo->prepare($sql);
     $pre->execute();
     $users = $pre->fetchAll(); ?>
     
     <ul class="collapsible">
       <li>
-          <div class="collapsible-header main-color"><h2>Utilisateurs</h2></div>
-          <div class="collapsible-body main-color">
-          <?php
-          foreach($users as $user){
-            ?>
-            <div class="container row">
-                <div class="col s6 l3">
-                    <p>Adresse Mail : <?php echo $user['email']?></p>
-                </div>
-                <div class="col s6 l3">
-                    <p><?php 
-                    if ($user['admin']==1){
-                        echo "Administrateur : Oui";
-                    }
-                    else{
-                        echo "Administrateur : Non";
-                    }?></p> 
-                </div>
-                <div class="col s6 l3">
-                    <form class="center" method="post" action="php/action/admin_user.php">
-                        <input type="hidden" name="email" value="<?php echo $user['email'];?>">
-                        <input type="hidden" name="admin" value="<?php echo $user['admin'];?>">
-                        <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="adminBtn">
-                        <?php if ($user['admin']==1){
-                            echo "Démettre Admin";
-                        }
-                        else{
-                            echo "Mettre Admin";
-                        }?>
-                        </button>
-                    </form>
-                </div>
-                <div class="col s6 l3">
-                    <form method="post" action="php/action/delete_user.php" class="center">
-                        <input type="hidden" name="id" value="<?php echo $user['email'];?>">
-                        <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="delete">Supprimer</button>
-                    </form>
-                </div>
+        <div class="collapsible-header main-color"><h2>Utilisateurs</h2></div>
+        <div class="collapsible-body main-color">
+        <?php foreach($users as $user){ ?>
+          <div class="container row">
+            <div class="col s6 l3">
+              <p>Adresse Mail : <?php echo $user['email']?></p>
             </div>
+            <div class="col s6 l3">
+              <p><?php if ($user['admin']==1){
+                    echo "Administrateur : Oui";
+                  } else {
+                    echo "Administrateur : Non"; } ?></p>
+            </div>
+            <div class="col s6 l3">
+              <form class="center" method="post" action="php/action/admin_user.php">
+                <input type="hidden" name="email" value="<?php echo $user['email'];?>">
+                <input type="hidden" name="admin" value="<?php echo $user['admin'];?>">
+                <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="adminBtn">
+                  <?php if ($user['admin']==1){
+                    echo "Démettre Admin";
+                  } else {
+                    echo "Mettre Admin"; } ?>
+                </button>
+              </form>
+            </div>
+            <div class="col s6 l3">
+              <form method="post" action="php/action/delete_user.php" class="center">
+                <input type="hidden" name="id" value="<?php echo $user['email'];?>">
+                <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="delete">Supprimer</button>
+              </form>
+            </div>
+          </div>
             <?php } ?>
           </div>
         </div>

@@ -26,7 +26,8 @@ header('Retry-After: 3600'); ?>
     <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
-<body>
+
+  <body>
 
     <?php require "php/components/nav.php"; ?>
 
@@ -48,5 +49,5 @@ header('Retry-After: 3600'); ?>
     <!-- Import Our JS -->
     <script src="script/script.js"></script>
     
-</body>
+  </body>
 </html>

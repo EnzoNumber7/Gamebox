@@ -35,7 +35,7 @@
         require_once "php/action/signup.php";  
       } else { ?>
       
-    <h1 class="center"><b>CREER UN COMPTE</b></h1>
+    <h1 class="center title-font">CREER UN COMPTE</h1>
 
     <?php if (isset($_SESSION['signup_error'])){ ?>
       <p class="center error"><?php echo $_SESSION['signup_error']; ?></p>

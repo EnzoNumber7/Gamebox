@@ -27,6 +27,16 @@
     <title>Gamebox</title>
   </head>
 
+  <?php
+  $sql = "SELECT * FROM admin_gestion";
+  $pre = $pdo->prepare($sql);
+  $pre->execute();
+  $maintenance = $pre->fetch(PDO::FETCH_ASSOC);
+
+  if($maintenance['maintenance']==1){
+    header('Location: maintenancePage.php');
+  }?>
+
   <body>
 
     <?php require "php/components/nav.php"; ?>

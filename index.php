@@ -29,6 +29,15 @@
   $sql = "SELECT * FROM admin_gestion";
   $pre = $pdo->prepare($sql);
   $pre->execute();
+  $maintenance = $pre->fetch(PDO::FETCH_ASSOC);
+
+  if($maintenance['maintenance']==1){
+    header('Location: maintenancePage.php');
+  }
+
+  $sql = "SELECT * FROM admin_gestion";
+  $pre = $pdo->prepare($sql);
+  $pre->execute();
   $homedata = $pre->fetch(PDO::FETCH_ASSOC);
   ?>
 

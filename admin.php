@@ -287,11 +287,26 @@
       </li>
     </ul>
 
-    <div class="center">
-      <a href="maintenance.php" class="waves-effect waves-light btn-large button-style">Maintenance</a>
-    </div>
+    <?php
+    $sql = "SELECT * FROM admin_gestion";
+    $pre = $pdo->prepare($sql);
+    $pre->execute();
+    $maintenance = $pre->fetch(PDO::FETCH_ASSOC); ?>
+   
+      <form class="center" method="post" action="php/action/maintenance.php">
+        <input type="hidden" name="maintenance" value=<?php echo $maintenance['maintenance'] ;?>>
+        <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="maintenanceBtn">
+          <?php if ($maintenance['maintenance']==1){
+              echo "Fin de Maintenance";
+          }
+          else{
+              echo "Maintenance";
+          }?>
+        </button>
+      </form>
 
-    <?php require "php/components/footer.php"; ?>
+    <?php 
+ require "php/components/footer.php"; ?>
       <!-- JQuery -->
     <script src="script/jquery.min.js"></script>
     <!-- Materialize -->

@@ -198,12 +198,6 @@ p{
     color: var(--text-color);
 }
 
-/* Maintenance */
-
-.maintenance{
-    height: 100%;
-}
-
 /* Footer */
 
 footer{
@@ -243,3 +237,6 @@ footer{
     color: var(--text-color);
     text-decoration: none;
 }
+
+/* Maintenance */
+

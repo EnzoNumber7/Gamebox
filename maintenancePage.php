@@ -1,5 +1,9 @@
+<?php require_once "php/config/config.php";
+header('HTTP/1.1 503 Service Temporarily Unavailable');
+header('Retry-After: 3600'); ?> 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
 
@@ -16,13 +20,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Config Tab In Browser -->
-    <link rel="icon" href="">
+    <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
 <body>
 
-    <div class="maintenance">
-        <h1 class="center title-font">Site en Maintenance</h1>
+    <?php require "php/components/nav.php"; ?>
+
+    <div class="container">
+        <div class="maintenance">
+            <h1 class="title-font"><iconify-icon inline icon="material-symbols:settings-outline" width="70" height="70"></iconify-icon> Site en Maintenance</h1>
+            <h2>Nos équipes travaillent pour bientôt vous dévoiler la box à thème du mois prochain.</h2>
+        </div>
     </div>
 
     <?php require "php/components/footer.php"; ?>

@@ -62,6 +62,12 @@ body{
     margin:10px;
 }
 
+.gcenter{
+    display:flex;
+    width:100%;
+    justify-content: center;
+}
+
 /* NavBar */
 
 nav{

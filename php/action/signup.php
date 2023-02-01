@@ -3,6 +3,11 @@ require_once "php/config/config.php";
 
 $password = $_POST['password'];
 $email = $_POST['email'];
+if ($_POST["newsletter"] == "on"){
+    $newsletter = 1;
+} else {
+    $newsletter = 0;
+}
 
 if(empty($email) && empty($password)){
     $_SESSION['signup_error'] = "Vous devez remplir tout les champs";
@@ -35,10 +40,11 @@ foreach($queries as $user){
 }
 
 unset($_SESSION['signup_error']);
-$sql = "INSERT INTO user(email,password,admin) VALUES(:email,MD5(:password),'0')";
+$sql = "INSERT INTO user(email,password,newsletter,admin) VALUES(:email,MD5(:password),:newsletter,'0')";
 $dataBinded=array(
     ':email'   => $email,   
     ':password'=> "fqkejqqjfoeyeiuqfhuize".$password,
+    ':newsletter' => $newsletter
 );
 
 $pre = $pdo->prepare($sql);

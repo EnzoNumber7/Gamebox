@@ -50,6 +50,12 @@
           <input class="center" name="email" type="text" /><br />
           <p>Mot de Passe</p>
           <input class="center" name="password" type="password" />
+          <p>
+            <label>
+              <input type="checkbox" name="newsletter" />
+              <span>En cochant cette case, vous acceptez de recevoir notre newsletter par mail.</span>
+            </label>
+          </p>
         </div>
         <div class="col s12">
           <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="sign">INSCRIPTION</button>

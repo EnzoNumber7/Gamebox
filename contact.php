@@ -29,7 +29,7 @@
               <input class="center" name="object" type="text" />
               <p>Votre Message : </p>
               <textarea class="center" name="text" cols="30" rows="10"></textarea> <br>
-              <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer" />
+              <button class="margin-top button-style btn waves-effect waves-light btn-large button-style" type="submit" name="send">ENVOYER</button>
           </form>
       </div>
             

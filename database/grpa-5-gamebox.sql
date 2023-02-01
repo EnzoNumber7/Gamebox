@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 01 Février 2023 à 09:32
+-- Généré le :  Mer 01 Février 2023 à 12:00
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -62,7 +62,7 @@ CREATE TABLE `box` (
 --
 
 INSERT INTO `box` (`id_product_1`, `id_product_2`, `id_product_3`, `id_product_4`, `id_product_5`, `stock`) VALUES
-(1, 2, 3, 4, 5, 250);
+(1, 2, 3, 4, 5, 247);
 
 -- --------------------------------------------------------
 
@@ -159,7 +159,7 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`product_name`, `qte`, `price`, `date`, `id`, `user_email`, `payed`) VALUES
-('Box', 2, 159.98, '2023-02-01 10:13:38', 1, 't', 0);
+('Box', 1, 79.99, '2023-02-01 11:30:33', 2, 't', 0);
 
 -- --------------------------------------------------------
 
@@ -181,11 +181,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `img`, `product_name`, `product_desc`, `img_2`) VALUES
-(1, 'img/sh.jpg', 'T-Shirt Silent Hill', '', 'img/sh.jpg'),
-(2, 'img/sh.jpg', 'T-Shirt Silent Hill', '', 'img/sh.jpg'),
-(3, 'img/sh.jpg', 'T-Shirt Silent Hill', '', 'img/sh.jpg'),
+(1, 'img/dbd.jpg', 'Dead By Daylight', 'Jeu de survival d’horreur, multijoueur sorti en 2016. Sur le principe du cache-cache, tueurs et survivants s’affrontent. Vous pourrez choisir votre personnage ainsi que votre camps pour prendre part à la bataille.', 'img/deadbydaylight.jpg'),
+(2, 'img/pj.jpg', 'Pumpkin Jack', 'Platformer 3D indépendant sorti en 2020. A travers des paysages fantastiques et au travers d’un univers effrayant et amusant. Incarnez Jack, le seigneur à la tête de citrouille pour l’aider à triompher du bien.', 'img/pumpkinjack.jpg'),
+(3, 'img/nendoroid.jpg', 'Figurine Nendoroid', '', 'img/nendoroid.jpg'),
 (4, 'img/sh.jpg', 'T-Shirt Silent Hill', '', 'img/sh.jpg'),
-(5, 'img/sh.jpg', 'T-Shirt Silent Hill', '', 'img/sh.jpg');
+(5, 'img/mystery.png', 'Goodies Mystère', '', 'img/mystery.png');
 
 -- --------------------------------------------------------
 
@@ -206,6 +206,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`email`, `password`, `admin`) VALUES
 ('anaelle', '11c1d6d37c1b85a93fa20f0255ea8bbd', 0),
+('root', '5db44b679bb4e67c3b1f1b900b9b9adc', 0),
 ('steve@mc.donald', '809105a5a6b5591f43f143ed57fddec2', 0),
 ('t', '5f8bdda8d653b377ab6523ca14225b50', 1);
 
@@ -221,8 +222,7 @@ ALTER TABLE `box`
   ADD KEY `id_product_2` (`id_product_2`),
   ADD KEY `id_product_3` (`id_product_3`),
   ADD KEY `id_product_4` (`id_product_4`),
-  ADD KEY `id_product_5` (`id_product_5`),
-  ADD KEY `stock` (`stock`);
+  ADD KEY `id_product_5` (`id_product_5`);
 
 --
 -- Index pour la table `cgv`
@@ -268,7 +268,7 @@ ALTER TABLE `cgv`
 -- AUTO_INCREMENT pour la table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `products`
 --

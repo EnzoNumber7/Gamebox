@@ -16,9 +16,24 @@
   <h1 class="title-font center">Panier/Paiement</h1>
 
   <div class="container light-border">
-      <h2><iconify-icon inline icon="ic:round-shopping-cart"></iconify-icon>Résumé du Panier :</h2>
+      <h2 class='center'><iconify-icon inline icon="ic:round-shopping-cart"></iconify-icon>Résumé du Panier :</h2>
       <?php
       if (isset($_SESSION['user'])){
+        $sql = "Select stock from box";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $stock = $pre->fetch(PDO::FETCH_ASSOC);
+
+        if ($stock['stock'] == 0){
+          ?> <p class="error center">Stock Epuisé</p>
+          <div class="row hide-on-small-only">  
+            <h3 class="col l4 m4 s4 underline center">Produit</h3>     
+            <h3 class="col l4 m4 s4 underline center">Quantité</h3> 
+            <h3 class="col l4 m4 s4 underline center">Prix/u</h3>
+          </div>
+        <?php
+        }
+      else{
         $email = $_SESSION['user']['email'];
         $sql = "Select product_name,qte,price from payment WHERE user_email=:email";
         $dataBinded = array(
@@ -44,8 +59,10 @@
           <h3 class="col l4 m4 s4 underline center">Prix/u</h3>
           <p class="col l4 m4 s4 center"><?php echo $users['price'] ?></p>
         </div>
+      <?php }
+        
 
-      <?php } 
+      } 
       else{ ?>
         <div class="row hide-on-small-only ">  
         <h3 class="col l4 m4 s4 underline center">Produit</h3>     

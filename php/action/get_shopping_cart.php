@@ -17,8 +17,18 @@ if (isset($_SESSION['user'])){
     $data = $pre->fetch(PDO::FETCH_ASSOC);
 
     if (empty($data)){
-        $sql="INSERT INTO payment (qte,price,user_email) VALUES (1,79.99,:email)";
+        $sql="INSERT INTO payment (product_name,qte,price,user_email) VALUES ('Box',1,79.99,:email)";
 
+        $dataBinded = array(
+            ":email"=>$email
+        );
+
+        $pre = $pdo->prepare($sql);
+        $pre->execute($dataBinded);
+        $data = $pre->fetch(PDO::FETCH_ASSOC);
+
+        $sql="UPDATE box SET stock=stock-1";
+        
         $dataBinded = array(
             ":email"=>$email
         );
@@ -41,6 +51,16 @@ if (isset($_SESSION['user'])){
         $pre = $pdo->prepare($sql);
         $pre->execute($dataBinded);
         $data = $pre->fetch(PDO::FETCH_ASSOC);
+
+        $sql="UPDATE box SET stock=stock-1";
+        
+        $dataBinded = array(
+            ":email"=>$email
+        );
+
+        $pre = $pdo->prepare($sql);
+        $pre->execute($dataBinded);
+        $data = $pre->fetch(PDO::FETCH_ASSOC);  
 
         header("Location:../../payment.php");
         exit();

@@ -1,12 +1,14 @@
 <?php require_once "../config/config.php";
 
+// UN UTILISATEUR NON CONNECTE ET NON ADMIN N'A PAS ACCES AU PANEL ADMIN
 if (empty($_SESSION['user']) || $_SESSION['user']['admin'] == 0){
-    header('Location:index.php');//on le redirige sur la page d'accueil du site !
+    header('Location:index.php');
     exit();      
 }
 
 $id = $_POST['id'];
 
+// RECUPERER LES DONNES DES MENTIONS LEGALES
 if ($id == 5){
     $pageTitle = $_POST['page_title'];
     $title = $_POST['title'];
@@ -20,6 +22,7 @@ if ($id == 5){
     $article4 = $_POST['article4'];
     $textArticle4 = $_POST['text_article4'];
 
+    // METTRE A JOUR LES MENTIONS LEGALES DANS LA BDD
     $sql = "UPDATE CGV SET page_title=:page_title,
     paragraph=:paragraph,
     title=:title,
@@ -50,10 +53,11 @@ if ($id == 5){
     $pre = $pdo->prepare($sql);
     $pre->execute($dataBinded);
         
-    header('Location:../../admin.php');//on le redirige sur la page d'accueil du site !
+    header('Location:../../admin.php');
     exit();
 }
 
+// RECUPERER LES DONNES DES CGV
 else if ($id == 6){
     $title = $_POST['title'];
     $article1 = $_POST['article1'];
@@ -83,6 +87,7 @@ else if ($id == 6){
     $article12 = $_POST['article12'];
     $textArticle12 = $_POST['text_article12'];
 
+    // METTRE A JOUR LES CGV DANS LA BDD
     $sql = "UPDATE CGV SET title=:title,
     article1=:article1,
     article2=:article2,
@@ -145,6 +150,7 @@ else if ($id == 6){
     $pre = $pdo->prepare($sql);
     $pre->execute($dataBinded);
         
-    header('Location:../../admin.php');//on le redirige sur la page d'accueil du site !
+    header('Location:../../admin.php');
     exit();
 }
+?>

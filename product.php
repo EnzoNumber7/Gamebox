@@ -5,22 +5,25 @@
   <head>
     <meta charset="UTF-8">
 
-    <!-- Imort Fonts -->
+    <!-- IMPORT FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat&display=swap" rel="stylesheet">
 
-    <!--Import Materialize-->
+    <!-- IMPORT API GOOGLE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- IMPORT MATERIALIZE -->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
 
-    <!--Let browser know website is optimized for mobile-->
+    <!-- LE NAVIGATEUR SAIT QUE LE SITE EST OPTIMISE SUR MOBILE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Description for the Browser -->
+    <!-- DESCRIPTION POUR LE NAVIGATEUR -->
     <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
 
-    <!-- Config Tab In Browser -->
+    <!-- CONFIGURATION DE LA TAB DANS LE NAVIGATEUR -->
     <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
@@ -59,6 +62,7 @@
         $product1data = $pre->fetch(PDO::FETCH_ASSOC);
         ?>
 
+        <!-- CARD DU JEU POPULAIRE DU MOIS -->
         <div class="row">
             <div class="col l4 m12 s12 offset-l2">
                 <div class="card-panel main-color center valign-wrapper product-card">
@@ -84,6 +88,7 @@
         $product2data = $pre->fetch(PDO::FETCH_ASSOC);
         ?>
 
+        <!-- CARD DU JEU INDEPENDANT DU MOIS -->
         <div class="row ">
             <div class="col l4 m12 s12 offset-l2">
                 <div class="card card-config">
@@ -110,6 +115,7 @@
         ?>
 
         <div class="row">
+            <!-- CARD DU GOODIES 1 DU MOIS -->
             <div class="col l4 m12 s12">
                 <div class="card card-config">
                     <div class="card-image">
@@ -128,6 +134,7 @@
         $product4data = $pre->fetch(PDO::FETCH_ASSOC);
         ?>
 
+            <!-- CARD DU GOODIES 2 DU MOIS -->
             <div class="col l4 m12 s12">
                 <div class="card card-config">
                     <div class="card-image">
@@ -145,6 +152,7 @@
         $pre->execute();
         $product5data = $pre->fetch(PDO::FETCH_ASSOC);
         ?>
+            <!-- CARD DU GOODIES MYSTERE -->
             <div class="col l4 m12 s12">
                 <div class="card card-config">
                     <div class="card-image">
@@ -157,16 +165,19 @@
             </div>
         </div>
 
+        <!-- BOUTON AJOUT AU PANIER POUR GRAND ECRAN -->
         <div class = "center hide-on-med-and-down">
             <a href="php/action/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier "><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon>AJOUTER AU PANIER</a>
         </div>
 
+        <!-- BOUTON AJOUT AU PANIER POUR PETIT ECRAN -->
         <div class="center hide-on-large-only">
-            <a href="php/action/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier"><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30">AJOUTER AU PANIER</iconify-icon></a>
+            <a href="php/action/get_shopping_cart.php" class="waves-effect waves-light btn-large button-style btn-panier"><iconify-icon inline icon="mdi:cart-arrow-down" width="30" height="30"></iconify-icon></a>
         </div>
 
     </div>
 
+    <!-- BOUTON FLOTANT POUR REVENIR EN HAUT DE LA PAGE -->
     <div class="fixed-action-btn">
         <a href="#nav" class="btn-floating btn-large float-btn">
             <iconify-icon icon="material-symbols:keyboard-arrow-up-rounded" width="50" height="50"></iconify-icon>
@@ -175,13 +186,13 @@
 
     <?php require "php/components/footer.php"; ?>
 
-    <!-- JQuery -->
+    <!-- JQUERY -->
     <script src="script/jquery.min.js"></script>
-    <!-- Materialize -->
+    <!-- MATERIALIZE -->
     <script src="script/materialize.min.js"></script>
-    <!-- Import Iconify -->
+    <!-- ICONIFY -->
     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <!-- Import Our JS -->
+    <!-- NOTRE JS -->
     <script src="script/script.js"></script>
     
   </body>

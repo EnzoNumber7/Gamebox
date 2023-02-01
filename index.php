@@ -5,22 +5,25 @@
   <head>
     <meta charset="UTF-8">
 
-    <!-- Imort Fonts -->
+    <!-- IMPORT FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat&display=swap" rel="stylesheet">
 
-    <!--Import Materialize-->
+    <!-- IMPORT API GOOGLE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- IMPORT MATERIALIZE -->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
 
-    <!--Let browser know website is optimized for mobile-->
+    <!-- LE NAVIGATEUR SAIT QUE LE SITE EST OPTIMISE SUR MOBILE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Description for the Browser -->
+    <!-- DESCRIPTION POUR LE NAVIGATEUR -->
     <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
 
-    <!-- Config Tab In Browser -->
+    <!-- CONFIGURATION DE LA TAB DANS LE NAVIGATEUR -->
     <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
@@ -44,6 +47,7 @@
   <body>
     <?php require "php/components/nav.php"; ?>
 
+    <!-- ACEUILL AVEC IMAGE DE FOND ET THEME DE LA BOX -->
     <div class="scorn valign-center text-color center">
       <img class="scorn-width" src=<?php echo $homedata['bg_image'] ?> alt="fond page d'acceuil - Gamebox">
       <div class="centered-title">
@@ -55,7 +59,7 @@
     </div>
 
     <div class="container">
-      <!-- Notre Concept -->
+      <!-- NOTRE CONCEPT -->
       <h2 id="scroll" class="title-font center home-title">Notre concept ?</h2>
 
       <p class="center">Une box gaming à thème qui change chaque mois.</p>
@@ -77,7 +81,7 @@
         </div>
       </div>
 
-      <!-- Contenu de la box -->
+      <!-- CONTENU DE LA BOX -->
       <h2 class="title-font center space">Contenu de la Gamebox</h2>
 
       <?php
@@ -88,6 +92,7 @@
       ?>
 
       <div class="row">
+        <!-- JEU POPULAIRE DU MOIS -->
         <div class="col l4 m12 s12">
           <div class="card card-config">
             <div class="card-image">
@@ -106,6 +111,7 @@
         $product2data = $pre->fetch(PDO::FETCH_ASSOC);
         ?>
 
+        <!-- JEU INDEPENDANT DU MOIS -->
         <div class="col l4 m12 s12">
           <div class="card card-config">
             <div class="card-image">
@@ -124,6 +130,7 @@
         $product3data = $pre->fetch(PDO::FETCH_ASSOC);
         ?>
 
+        <!-- GOODIES 1 DU MOIS -->
         <div class="col l4 m12 s12">
           <div class="card card-config">
             <div class="card-image">
@@ -144,6 +151,7 @@
       ?>
 
       <div class="row">
+        <!-- GOODIES 2 DU MOIS -->
         <div class="col l4 m12 s12 offset-l2">
           <div class="card card-config">
             <div class="card-image">
@@ -162,6 +170,7 @@
       $product5data = $pre->fetch(PDO::FETCH_ASSOC);
       ?>
 
+        <!-- GOODIES MYSTERE DU MOIS -->
         <div class="col l4 m12 s12">
           <div class="card card-config">
             <div class="card-image">
@@ -174,16 +183,19 @@
         </div>
       </div>
 
+      <!-- BOUTON DE COMMANDE SUR GRAND ECRAN (ACCES A LA PAGE PRODUIT) -->
       <div class="center hide-on-med-and-down">
         <a href="product.php" class="waves-effect waves-light btn-large button-style">Commander ma Box</a>
       </div>
 
+      <!-- BOUTON DE COMMANDE SUR PETIT ECRAN (ACCES A LA PAGE PRODUIT) -->
       <div class="center hide-on-large-only">
         <a href="product.php" class="waves-effect waves-light btn-large button-style">Commander</a>
       </div>
 
     </div>
 
+    <!-- BOUTON FLOTTANT POUR REVENIR EN HAUT DE LA PAGE -->
     <div class="fixed-action-btn">
       <a href="#nav" class="btn-floating btn-large float-btn">
         <iconify-icon icon="material-symbols:keyboard-arrow-up-rounded" width="50" height="50"></iconify-icon>
@@ -192,13 +204,13 @@
 
     <?php require "php/components/footer.php"; ?>
 
-    <!-- JQuery -->
+    <!-- JQUERY -->
     <script src="script/jquery.min.js"></script>
-    <!-- Materialize -->
+    <!-- MATERIALIZE -->
     <script src="script/materialize.min.js"></script>
-    <!-- Import Iconify -->
+    <!-- ICONIFY -->
     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <!-- Import Our JS -->
+    <!-- NOTRE JS -->
     <script src="script/script.js"></script>
     
   </body>

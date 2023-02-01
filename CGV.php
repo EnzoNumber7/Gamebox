@@ -5,22 +5,25 @@
   <head>
     <meta charset="UTF-8">
 
-    <!-- Imort Fonts -->
+    <!-- IMPORT FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat&display=swap" rel="stylesheet">
 
-    <!--Import Materialize-->
+    <!-- IMPORT API GOOGLE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- IMPORT MATERIALIZE -->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
 
-    <!--Let browser know website is optimized for mobile-->
+    <!-- LE NAVIGATEUR SAIT QUE LE SITE EST OPTIMISE SUR MOBILE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Description for the Browser -->
+    <!-- DESCRIPTION POUR LE NAVIGATEUR -->
     <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
 
-    <!-- Config Tab In Browser -->
+    <!-- CONFIGURATION DE LA TAB DANS LE NAVIGATEUR -->
     <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
@@ -39,6 +42,7 @@
       <div class="Mention">
         <h1><?php echo $element['page_title'] ?></h1>
         <p>En vigueur depuis <?php echo $element['date']?> </p>
+        <!-- MENTIONS LEGALES -->
         <h2><?php echo $element['title'] ?></h2>
         <p><?php echo $element['paragraph'] ?></p> 
         <h3><?php echo $element['article1'] ?></h3>
@@ -59,6 +63,7 @@
       ?>
 
       <div>
+        <!-- CONDITIONS GENERALES DE VENTE -->
         <h2><?php echo $element['title'] ?></h2>
         <p>En vigueur depuis <?php echo $element['date']?> </p>
         <h3><?php echo $element['article1'] ?></h3>
@@ -92,13 +97,13 @@
 
     <?php require "php/components/footer.php" ?>
 
-    <!-- JQuery -->
+    <!-- JQUERY -->
     <script src="script/jquery.min.js"></script>
-    <!-- Materialize -->
+    <!-- MATERIALIZE -->
     <script src="script/materialize.min.js"></script>
-    <!-- Import Iconify -->
+    <!-- ICONIFY -->
     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <!-- Import Our JS -->
+    <!-- NOTRE JS -->
     <script src="script/script.js"></script>
 
   </body>

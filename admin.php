@@ -5,22 +5,25 @@
   <head>
     <meta charset="UTF-8">
 
-    <!-- Imort Fonts -->
+    <!-- IMPORT FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat&display=swap" rel="stylesheet">
 
-    <!--Import Materialize-->
+    <!-- IMPORT API GOOGLE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- IMPORT MATERIALIZE -->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
 
-    <!--Let browser know website is optimized for mobile-->
+    <!-- LE NAVIGATEUR SAIT QUE LE SITE EST OPTIMISE SUR MOBILE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Description for the Browser -->
+    <!-- DESCRIPTION POUR LE NAVIGATEUR -->
     <meta name="description" content="Gamebox, une box gaming à thème qui change chaque mois !">
 
-    <!-- Config Tab In Browser -->
+    <!-- CONFIGURATION DE LA TAB DANS LE NAVIGATEUR -->
     <link rel="icon" href="img/gamebox.png">
     <title>Gamebox</title>
   </head>
@@ -43,6 +46,7 @@
     
     <ul class="collapsible">
       <li>
+        <!-- GESTION DES UTILISATEURS -->
         <div class="collapsible-header main-color"><h2>Utilisateurs</h2></div>
         <div class="collapsible-body main-color">
         <?php foreach($users as $user){ ?>
@@ -75,44 +79,45 @@
               </form>
             </div>
           </div>
-            <?php } ?>
-          </div>
+        <?php } ?>
         </div>
       </li>
       
       <li>
+        <!-- GESTION DE REPONSE AU MAILS DE LA PAGE CONTACT -->
         <div class="collapsible-header main-color"><h2 class="center">Mails de la Page Contact</h2></div>
         <div class="collapsible-body main-color">
-    <?php   
-      $sql = "Select * from contact";
-      $pre = $pdo->prepare($sql);
-      $pre->execute();
-      $contacts = $pre->fetchAll(); 
+          <?php   
+          $sql = "Select * from contact";
+          $pre = $pdo->prepare($sql);
+          $pre->execute();
+          $contacts = $pre->fetchAll(); 
 
-      foreach($contacts as $contact){
-      ?>
+          foreach($contacts as $contact){
+          ?>
 
-    <div class="container input-field">
-      <div class="row center">
-          <div class="col l6 m12 s12">
-              <p> De : <?php echo $contact['email']; ?></p>
-              <p>Objet : <?php echo $contact['object']; ?></p>
-              <p class="message-border"><?php echo $contact['text']; ?></p>
+          <div class="container input-field">
+            <div class="row center">
+              <div class="col l6 m12 s12">
+                <p> De : <?php echo $contact['email']; ?></p>
+                <p>Objet : <?php echo $contact['object']; ?></p>
+                <p class="message-border"><?php echo $contact['text']; ?></p>
+              </div>
+              <div class="col l6 m12 s12">
+                <h3>Réponse</h3>
+                <form method="post" action="php/action/answer.php">
+                    <textarea class="center" name="answer" cols="30" rows="10"></textarea> <br>
+                    <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer"/>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="col l6 m12 s12">
-              <h3>Réponse</h3>
-              <form method="post" action="php/action/answer.php">
-                  <textarea class="center" name="answer" cols="30" rows="10"></textarea> <br>
-                  <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer"/>
-              </form>
-          </div>
-      </div>
-    </div>
-    <?php } ?>
-            
-          </div>
+        <?php } ?>
+        </div>
       </li>
+
       <li>
+        <!-- GESTION DE MODIFICATION DE LA BOX DU MOIS -->
         <div class="collapsible-header main-color"><h2>Modification Box du Mois</h2></div>
         <div class="collapsible-body main-color">
             <?php
@@ -157,125 +162,122 @@
               </form>
 
             <?php } ?>
-
         </div>
       </li>
-      <li>
-      <div class="collapsible-header main-color"><h2 class="center">Mentions Légales et Conditions Générales de Vente</h2></div>
-            <div class="collapsible-body main-color">
-                <div class="row center input-field">
-                  <?php
-                  $sql = "Select * from CGV WHERE id=6";
-                  $pre = $pdo->prepare($sql);
-                  $pre->execute();
-                  $element = $pre->fetch(PDO::FETCH_ASSOC);?>
 
-                  <div class="col s12 l6">
-                    <h3> Conditions Générales de Vente </h3>
-                    <form method="post" action="php/action/updateCGV.php">
-                        <input type="hidden" name="id" value="<?php echo $element['id'];?>">
-                        <p>Sous Titre</p>
-                        <textarea class="center" name="title" cols="30" rows="10"><?php echo $element['title'] ?></textarea>
-                        <p>Article 1</p>
-                        <input class="center" name="article1" type="text" value="<?php echo $element['article1'] ?>" />
-                        <p>Article 1 - Texte</p>
-                        <textarea class="center" name="text_article1" cols="30" rows="30"><?php echo $element['text_article1'] ?></textarea>
-                        <p>Article 2</p>
-                        <input class="center" name="article2" type="text" value="<?php echo $element['article2'] ?>"/>
-                        <p>Article 2 - Texte</p>
-                        <textarea class="center" name="text_article2" cols="30" rows="30"><?php echo $element['text_article2'] ?></textarea>
-                        <p>Article 3</p>
-                        <input class="center" name="article3" type="text" value="<?php echo $element['article3'] ?>"/>
-                        <p>Article 3 - Texte</p>
-                        <textarea class="center" name="text_article3" cols="30" rows="20"><?php echo $element['text_article3'] ?></textarea>
-                        <p>Article 3 Bis</p>
-                        <input class="center" name="article3_bis" type="text" value="<?php echo $element['article3_bis'] ?>"/>
-                        <p>Article 3 Bis - Texte</p>
-                        <textarea class="center" name="text_article3_bis" cols="30" rows="40"><?php echo $element['text_article3_bis'] ?></textarea>
-                        <p>Article 4</p>
-                        <input class="center" name="article4" type="text" value="<?php echo $element['article4'] ?>"/>
-                        <p>Article 4 - Texte</p>
-                        <textarea class="center" name="text_article4" cols="30" rows="15"><?php echo $element['text_article4'] ?></textarea>
-                        <p>Article 5</p>
-                        <input class="center" name="article5" type="text" value="<?php echo $element['article5'] ?>" />
-                        <p>Article 5 - Texte</p>
-                        <textarea class="center" name="text_article5" cols="30" rows="50"><?php echo $element['text_article5'] ?></textarea>
-                        <p>Article 6</p>
-                        <input class="center" name="article6" type="text" value="<?php echo $element['article6'] ?>" />
-                        <p>Article 6 - Texte</p>
-                        <textarea class="center" name="text_article6" cols="30" rows="15"><?php echo $element['text_article6'] ?></textarea>
-                        <p>Article 7</p>
-                        <input class="center" name="article7" type="text" value="<?php echo $element['article7'] ?>" />
-                        <p>Article 7 - Texte</p>
-                        <textarea class="center" name="text_article7" cols="30" rows="15"><?php echo $element['text_article7'] ?></textarea>
-                        <p>Article 8</p>
-                        <input class="center" name="article8" type="text" value="<?php echo $element['article8'] ?>" />
-                        <p>Article 8 - Texte</p>
-                        <textarea class="center" name="text_article8" cols="30" rows="80"><?php echo $element['text_article8'] ?></textarea>
-                        <p>Article 9</p>
-                        <input class="center" name="article9" type="text" value="<?php echo $element['article9'] ?>" />
-                        <p>Article 9 - Texte</p>
-                        <textarea class="center" name="text_article9" cols="30" rows="85"><?php echo $element['text_article9'] ?></textarea>
-                        <p>Article 10</p>
-                        <input class="center" name="article10" type="text" value="<?php echo $element['article10'] ?>" />
-                        <p>Article 10 - Texte</p>
-                        <textarea class="center" name="text_article10" cols="30" rows="15"><?php echo $element['text_article10'] ?></textarea>
-                        <p>Article 11</p>
-                        <input class="center" name="article11" type="text" value="<?php echo $element['article11'] ?>" />
-                        <p>Article 11 - Texte</p>
-                        <textarea class="center" name="text_article11" cols="30" rows="15"><?php echo $element['text_article11'] ?></textarea>
-                        <p>Article 12</p>
-                        <input class="center" name="article12" type="text" value="<?php echo $element['article12'] ?>" />
-                        <p>Article 12 - Texte</p>
-                        <textarea class="center" name="text_article12" cols="30" rows="20"><?php echo $element['text_article12'] ?></textarea>
-                        <div>
-                           <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="uptdate">Modifier</button>
-                        </div>
-                       
-                      </form>
+      <li>
+        <!-- GESTION DE MODIFICATION DES MENTIONS LEGALES ET CGV -->
+        <div class="collapsible-header main-color"><h2 class="center">Mentions Légales et Conditions Générales de Vente</h2></div>
+          <div class="collapsible-body main-color">
+            <div class="row center input-field">
+              <?php
+              $sql = "Select * from CGV WHERE id=6";
+              $pre = $pdo->prepare($sql);
+              $pre->execute();
+              $element = $pre->fetch(PDO::FETCH_ASSOC);?>
+
+              <div class="col s12 l6">
+                <h3> Conditions Générales de Vente </h3>
+                <form method="post" action="php/action/updateCGV.php">
+                  <input type="hidden" name="id" value="<?php echo $element['id'];?>">
+                  <p>Sous Titre</p>
+                  <textarea class="center" name="title" cols="30" rows="10"><?php echo $element['title'] ?></textarea>
+                  <p>Article 1</p>
+                  <input class="center" name="article1" type="text" value="<?php echo $element['article1'] ?>" />
+                  <p>Article 1 - Texte</p>
+                  <textarea class="center" name="text_article1" cols="30" rows="30"><?php echo $element['text_article1'] ?></textarea>
+                  <p>Article 2</p>
+                  <input class="center" name="article2" type="text" value="<?php echo $element['article2'] ?>"/>
+                  <p>Article 2 - Texte</p>
+                  <textarea class="center" name="text_article2" cols="30" rows="30"><?php echo $element['text_article2'] ?></textarea>
+                  <p>Article 3</p>
+                  <input class="center" name="article3" type="text" value="<?php echo $element['article3'] ?>"/>
+                  <p>Article 3 - Texte</p>
+                  <textarea class="center" name="text_article3" cols="30" rows="20"><?php echo $element['text_article3'] ?></textarea>
+                  <p>Article 3 Bis</p>
+                  <input class="center" name="article3_bis" type="text" value="<?php echo $element['article3_bis'] ?>"/>
+                  <p>Article 3 Bis - Texte</p>
+                  <textarea class="center" name="text_article3_bis" cols="30" rows="40"><?php echo $element['text_article3_bis'] ?></textarea>
+                  <p>Article 4</p>
+                  <input class="center" name="article4" type="text" value="<?php echo $element['article4'] ?>"/>
+                  <p>Article 4 - Texte</p>
+                  <textarea class="center" name="text_article4" cols="30" rows="15"><?php echo $element['text_article4'] ?></textarea>
+                  <p>Article 5</p>
+                  <input class="center" name="article5" type="text" value="<?php echo $element['article5'] ?>" />
+                  <p>Article 5 - Texte</p>
+                  <textarea class="center" name="text_article5" cols="30" rows="50"><?php echo $element['text_article5'] ?></textarea>
+                  <p>Article 6</p>
+                  <input class="center" name="article6" type="text" value="<?php echo $element['article6'] ?>" />
+                  <p>Article 6 - Texte</p>
+                  <textarea class="center" name="text_article6" cols="30" rows="15"><?php echo $element['text_article6'] ?></textarea>
+                  <p>Article 7</p>
+                  <input class="center" name="article7" type="text" value="<?php echo $element['article7'] ?>" />
+                  <p>Article 7 - Texte</p>
+                  <textarea class="center" name="text_article7" cols="30" rows="15"><?php echo $element['text_article7'] ?></textarea>
+                  <p>Article 8</p>
+                  <input class="center" name="article8" type="text" value="<?php echo $element['article8'] ?>" />
+                  <p>Article 8 - Texte</p>
+                  <textarea class="center" name="text_article8" cols="30" rows="80"><?php echo $element['text_article8'] ?></textarea>
+                  <p>Article 9</p>
+                  <input class="center" name="article9" type="text" value="<?php echo $element['article9'] ?>" />
+                  <p>Article 9 - Texte</p>
+                  <textarea class="center" name="text_article9" cols="30" rows="85"><?php echo $element['text_article9'] ?></textarea>
+                  <p>Article 10</p>
+                  <input class="center" name="article10" type="text" value="<?php echo $element['article10'] ?>" />
+                  <p>Article 10 - Texte</p>
+                  <textarea class="center" name="text_article10" cols="30" rows="15"><?php echo $element['text_article10'] ?></textarea>
+                  <p>Article 11</p>
+                  <input class="center" name="article11" type="text" value="<?php echo $element['article11'] ?>" />
+                  <p>Article 11 - Texte</p>
+                  <textarea class="center" name="text_article11" cols="30" rows="15"><?php echo $element['text_article11'] ?></textarea>
+                  <p>Article 12</p>
+                  <input class="center" name="article12" type="text" value="<?php echo $element['article12'] ?>" />
+                  <p>Article 12 - Texte</p>
+                  <textarea class="center" name="text_article12" cols="30" rows="20"><?php echo $element['text_article12'] ?></textarea>
+                  <div>
+                      <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="uptdate">Modifier</button>
                   </div>
-                  <?php
-                  $sql = "Select * from CGV WHERE id=5";
-                  $pre = $pdo->prepare($sql);
-                  $pre->execute();
-                  $element = $pre->fetch(PDO::FETCH_ASSOC);?>
-                    <div class="col s12 l6">
-                      <h3> Mentions Légales </h3>  
-                        <form method="post" action="php/action/updateCGV.php">
-                          <input type="hidden" name="id" value="<?php echo $element['id'];?>">
-                          <p>Titre de la Page</p>
-                          <textarea class="center" name="page_title" cols="30" rows="10"><?php echo $element['page_title'] ?></textarea>
-                          <p>Sous Titre</p>
-                          <textarea class="center" name="title" cols="30" rows="10"><?php echo $element['title'] ?></textarea>
-                          <p>Paragraphe</p>
-                          <textarea class="center" name="paragraph" cols="30" rows="10"><?php echo $element['paragraph'] ?></textarea>
-                          <p>Article 1</p>
-                          <input class="center" name="article1" type="text" value="<?php echo $element['article1'] ?>" />
-                          <p>Article 1 - Texte</p>
-                          <textarea class="center" name="text_article1" cols="30" rows="10"><?php echo $element['text_article1'] ?></textarea>
-                          <p>Article 2</p>
-                          <input class="center" name="article2" type="text" value="<?php echo $element['article2'] ?>"/>
-                          <p>Article 2 - Texte</p>
-                          <textarea class="center" name="text_article2" cols="30" rows="10"><?php echo $element['text_article2'] ?></textarea>
-                          <p>Article 3</p>
-                          <input class="center" name="article3" type="text" value="<?php echo $element['article3'] ?>"/>
-                          <p>Article 3 - Texte</p>
-                          <textarea class="center" name="text_article3" cols="30" rows="10"><?php echo $element['text_article3'] ?></textarea>
-                          <p>Article 4</p>
-                          <input class="center" name="article4" type="text" value="<?php echo $element['article4'] ?>"/>
-                          <p>Article 4 - Texte</p>
-                          <textarea class="center" name="text_article4" cols="30" rows="15"><?php echo $element['text_article4'] ?></textarea>
-                          <div>
-                           <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="uptdate">Modifier</button>
-                        </div>
-                        </form>
-                    </div>
-                     
+                </form>
+              </div>
+
+            <?php
+            $sql = "SELECT * FROM CGV WHERE id=5";
+            $pre = $pdo->prepare($sql);
+            $pre->execute();
+            $element = $pre->fetch(PDO::FETCH_ASSOC);?>
+            <div class="col s12 l6">
+              <h3> Mentions Légales </h3>  
+              <form method="post" action="php/action/updateCGV.php">
+                <input type="hidden" name="id" value="<?php echo $element['id'];?>">
+                <p>Titre de la Page</p>
+                <textarea class="center" name="page_title" cols="30" rows="10"><?php echo $element['page_title'] ?></textarea>
+                <p>Sous Titre</p>
+                <textarea class="center" name="title" cols="30" rows="10"><?php echo $element['title'] ?></textarea>
+                <p>Paragraphe</p>
+                <textarea class="center" name="paragraph" cols="30" rows="10"><?php echo $element['paragraph'] ?></textarea>
+                <p>Article 1</p>
+                <input class="center" name="article1" type="text" value="<?php echo $element['article1'] ?>" />
+                <p>Article 1 - Texte</p>
+                <textarea class="center" name="text_article1" cols="30" rows="10"><?php echo $element['text_article1'] ?></textarea>
+                <p>Article 2</p>
+                <input class="center" name="article2" type="text" value="<?php echo $element['article2'] ?>"/>
+                <p>Article 2 - Texte</p>
+                <textarea class="center" name="text_article2" cols="30" rows="10"><?php echo $element['text_article2'] ?></textarea>
+                <p>Article 3</p>
+                <input class="center" name="article3" type="text" value="<?php echo $element['article3'] ?>"/>
+                <p>Article 3 - Texte</p>
+                <textarea class="center" name="text_article3" cols="30" rows="10"><?php echo $element['text_article3'] ?></textarea>
+                <p>Article 4</p>
+                <input class="center" name="article4" type="text" value="<?php echo $element['article4'] ?>"/>
+                <p>Article 4 - Texte</p>
+                <textarea class="center" name="text_article4" cols="30" rows="15"><?php echo $element['text_article4'] ?></textarea>
+                <div>
+                  <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="uptdate">Modifier</button>
                 </div>
-                
-              
+              </form>
             </div>
           </div>
+        </div>
       </li>
     </ul>
 
@@ -285,27 +287,29 @@
     $pre->execute();
     $maintenance = $pre->fetch(PDO::FETCH_ASSOC); ?>
    
-      <form class="center" method="post" action="php/action/maintenance.php">
-        <input type="hidden" name="maintenance" value=<?php echo $maintenance['maintenance'] ;?>>
-        <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="maintenanceBtn">
-          <?php if ($maintenance['maintenance']==1){
-              echo "Fin de Maintenance";
-          }
-          else{
-              echo "Maintenance";
-          }?>
-        </button>
-      </form>
+    <!-- POSSIBILITES DE METTRE LE SITE EN MAINTENANCE -->
+    <form class="center" method="post" action="php/action/maintenance.php">
+      <input type="hidden" name="maintenance" value=<?php echo $maintenance['maintenance'] ;?>>
+      <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="maintenanceBtn">
+        <?php if ($maintenance['maintenance']==1){
+            echo "Fin de Maintenance";
+        }
+        else{
+            echo "Maintenance";
+        }?>
+      </button>
+    </form>
 
-    <?php 
- require "php/components/footer.php"; ?>
-      <!-- JQuery -->
+    <?php require "php/components/footer.php"; ?>
+
+    <!-- JQUERY -->
     <script src="script/jquery.min.js"></script>
-    <!-- Materialize -->
+    <!-- MATERIALIZE -->
     <script src="script/materialize.min.js"></script>
-    <!-- Import Iconify -->
+    <!-- ICONIFY -->
     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <!-- Import Our JS -->
+    <!-- NOTRE JS -->
     <script src="script/script.js"></script>
+
   </body>
 </html>

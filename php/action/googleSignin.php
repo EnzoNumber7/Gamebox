@@ -11,7 +11,7 @@ if (isset($_POST['credential'])){
     }
     
     $clientId = "696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com";
-    $client = new Google_Client(['client_id' => $clientId]);  // Specify the clientId of the app that accesses the backend
+    $client = new Google_Client(['client_id' => $clientId]);  // SPECIFIER L'ID CLIENT DANS L'APP QUI A ACCES AU BACKEND
     
     $guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
     $client->setHttpClient($guzzleClient);
@@ -21,7 +21,7 @@ if (isset($_POST['credential'])){
 
     if ($user) {
 
-      // ON AJOUTE LES DONNEE DE L'UTILISATEUR DANS LA BDD S'IL ELLE N'EXISTE PAS
+      // AJOUTER LES DONNEES DE L'UTILISATEUR DANS LA BDD S'IL ELLE N'EXISTENT PAS
     
       $sql = "SELECT * FROM user WHERE email=:email";
       $dataBinded=array(
@@ -42,7 +42,7 @@ if (isset($_POST['credential'])){
         $pre->execute($dataBinded);
       }
 
-        // ON CONNECTE L'UTILISATEUR
+        // CONNECTER L'UTILISATEUR
 
         $_SESSION['user']=$connect;
     }
@@ -50,4 +50,4 @@ if (isset($_POST['credential'])){
 
 header("Location:../../signinPage.php");
 exit();
-
+?>

@@ -13,7 +13,7 @@ $email = $_POST['email'];
 
 // EMPECHER UN ADMIN DE S'ENLEVER LES DROITS ADMIN
 if ($_SESSION['user']['email'] == $email){
-    $_SESSION['admin_error'] = "Vous ne pouvez pas vous enlevez les droit d'administrateur !";
+    $_SESSION['admin_error'] = "Vous ne pouvez pas vous enlever les droit d'administrateur !";
     header('Location:../../admin.php');
     exit();
 }

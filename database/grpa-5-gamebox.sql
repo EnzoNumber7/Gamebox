@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 01 Février 2023 à 12:00
+-- Généré le :  Jeu 02 Février 2023 à 17:29
 -- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Version de PHP :  7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,8 +39,8 @@ CREATE TABLE `admin_gestion` (
 -- Contenu de la table `admin_gestion`
 --
 
-INSERT INTO `admin_gestion` (`theme_title`, `bg_image`,`maintenance`) VALUES
-('Box Halloween', 'img/scorn.png','0');
+INSERT INTO `admin_gestion` (`theme_title`, `bg_image`, `maintenance`) VALUES
+('Box Halloween', 'img/scorn.png', 0);
 
 -- --------------------------------------------------------
 
@@ -124,19 +124,39 @@ DROP TABLE IF EXISTS `contact`;
 CREATE TABLE `contact` (
   `object` text NOT NULL,
   `text` text NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `answer` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `contact`
 --
 
-INSERT INTO `contact` (`object`, `text`, `email`) VALUES
-('gamebox', 'je suis une pomme.', 'anaelle.romanzin@gmail.com'),
-('gamebox', 'je suis une poire.', 'aromanzin@gaming.tech'),
-('gamebox', 'je suis une poire.', 'aromanzin@gaming.tech'),
-('gamebox', 'je suis une pomme.', 'anaelle.romanzin@gmail.com'),
-('pomme', 'pomme poiure', 'anaelle.romanzin@gmail.com');
+INSERT INTO `contact` (`object`, `text`, `email`, `answer`) VALUES
+('gamebox', 'je suis une pomme.', 'anaelle.romanzin@gmail.com', 0),
+('gamebox', 'je suis une poire.', 'aromanzin@gaming.tech', 0),
+('gamebox', 'je suis une poire.', 'aromanzin@gaming.tech', 0),
+('gamebox', 'je suis une pomme.', 'anaelle.romanzin@gmail.com', 0),
+('pomme', 'pomme poiure', 'anaelle.romanzin@gmail.com', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `newsletter`
+--
+
+DROP TABLE IF EXISTS `newsletter`;
+CREATE TABLE `newsletter` (
+  `newsletter_title` text NOT NULL,
+  `text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `newsletter`
+--
+
+INSERT INTO `newsletter` (`newsletter_title`, `text`) VALUES
+('Découvrez la box du mois d\'octobre !', 'On est en octobre, autrement dit c\'est le mois des citrouilles, de la chasse aux bonbons et de l\'horreur, a.k.a Halloween ! En cet honneur, nous tenons à vous présenter notre nouvelle box, qui contient comme toujours 2 jeux, qui ce mois-ci sont Dead by Daylight et Pumpkin Jack, mais également 2 goodies : une figurine de Nendoroid et un t-shirt de Silent Hill. Avec ces 4 objets s\'accompagne comme toujours notre objet mystère, alors n\'hésitez pas à commander dès aujourd\'hui notre box Halloween pour découvrir tout cela !');
 
 -- --------------------------------------------------------
 
@@ -198,7 +218,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `newsletter` tinyint(1),
+  `newsletter` tinyint(1) DEFAULT NULL,
   `admin` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -206,8 +226,8 @@ CREATE TABLE `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`email`, `password`, `newsletter`,`admin`) VALUES
-('anaelle', '11c1d6d37c1b85a93fa20f0255ea8bbd', 0, 0),
+INSERT INTO `user` (`email`, `password`, `newsletter`, `admin`) VALUES
+('anaelle', '11c1d6d37c1b85a93fa20f0255ea8bbd', 1, 0),
 ('root', '5db44b679bb4e67c3b1f1b900b9b9adc', 0, 0),
 ('steve@mc.donald', '809105a5a6b5591f43f143ed57fddec2', 0, 0),
 ('t', '5f8bdda8d653b377ab6523ca14225b50', 0, 1);

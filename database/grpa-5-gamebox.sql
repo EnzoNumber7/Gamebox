@@ -31,15 +31,16 @@ USE `grpa-5-gamebox`;
 DROP TABLE IF EXISTS `admin_gestion`;
 CREATE TABLE `admin_gestion` (
   `theme_title` varchar(100) NOT NULL,
-  `bg_image` text NOT NULL
+  `bg_image` text NOT NULL,
+  `maintenance` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `admin_gestion`
 --
 
-INSERT INTO `admin_gestion` (`theme_title`, `bg_image`) VALUES
-('Box Halloween', 'img/scorn.png');
+INSERT INTO `admin_gestion` (`theme_title`, `bg_image`,`maintenance`) VALUES
+('Box Halloween', 'img/scorn.png','0');
 
 -- --------------------------------------------------------
 
@@ -197,6 +198,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `newsletter` tinyint(1),
   `admin` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

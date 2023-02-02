@@ -43,7 +43,6 @@
       <div class="nav-wrapper">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><iconify-icon icon="ic:round-menu" width="50" height="40"></iconify-icon></a>
         <a href="index.php" class="brand-logo hide-on-small-only"><iconify-icon inline icon="mdi:progress-question" width="33" height="33"></iconify-icon> Gamebox</a>
-        <a href="index.php" class="brand-logo hide-on-med-and-up"><iconify-icon inline icon="mdi:progress-question" width="30" height="33"></iconify-icon> Gamebox</a>
         <ul class="right hide-on-med-and-down">
           <?php 
           if (isset($_SESSION['user'])){ ?>
@@ -59,6 +58,7 @@
 
     <!-- NAVBAR MOBILE HORS MAINTENANCE -->
     <ul class="sidenav side-nav-config" id="mobile-demo">
+      <li><a href="index.php" class="brand-logo hide-on-med-and-up"><iconify-icon inline icon="mdi:progress-question" width="30" height="33"></iconify-icon> Gamebox</a><li>
       <?php 
       if (isset($_SESSION['user'])){ ?>
         <li><a href="signinPage.php"><iconify-icon inline icon="bi:person-circle" width="20" height="20"></iconify-icon>Compte</a></li>

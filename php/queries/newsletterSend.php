@@ -1,34 +1,24 @@
 <?php
 require_once "../config/config.php";
 
-$sql = "SELECT * FROM contact";
+$sql = "SELECT * FROM user WHERE newsletter = True";
 $pre = $pdo->prepare($sql);
 $pre->execute();
 $contacts = $pre->fetchAll(); 
 
 foreach($contacts as $contact){
 
-    if (isset($_POST["answer"])){
+    if (isset($_POST["text"])){
 
         // RECUPERER L'EMAIL DE LA PERSONNE QUI NOUS A CONTACTER POUR LUI REPONDRE
         $to = $contact['email'];
-        $subject = "Gamebox";
-        $message =$_POST["answer"];
+        $subject = $_POST["newsletter_title"];
+        $message =$_POST["text"];
         $additional_headers = "From: gamebox@gmail.com" . "\r\n";
 
         // ENVOYER UN MAIL AVEC LE CONTENU DU FORMULAIRE DE REPONSE
         mail($to,$subject,$message,$additional_headers);
-        $sql = "UPDATE contact SET `answer` = '1' WHERE id = :id";
-        $dataBinded = array(
-            ':id' => $contact['id']
-        );
-        $pre = $pdo->prepare($sql);
-        $pre->execute($dataBinded);
     }else{
-        echo('error');
+        echo('aucun texte dans le $_POST');
     }
 }
-
-//header('Location: ../index.php');
-//exit();
-?>

@@ -77,6 +77,10 @@ p{
     justify-content: center;
 }
 
+textarea{
+    resize: none;
+}
+
 /* NAVBAR */
 
 nav{

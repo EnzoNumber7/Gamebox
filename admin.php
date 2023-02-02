@@ -49,37 +49,37 @@
         <!-- GESTION DES UTILISATEURS -->
         <div class="collapsible-header main-color"><h2>Utilisateurs</h2></div>
         <div class="collapsible-body main-color">
-        <?php foreach($users as $user){ ?>
-          <div class="container row">
-            <div class="col s6 l3">
-              <p>Adresse Mail : <?php echo $user['email']?></p>
+          <?php foreach($users as $user){ ?>
+            <div class="container row">
+              <div class="col s6 l3">
+                <p>Adresse Mail : <?php echo $user['email']?></p>
+              </div>
+              <div class="col s6 l3">
+                <p><?php if ($user['admin']==1){
+                      echo "Administrateur : Oui";
+                    } else {
+                      echo "Administrateur : Non"; } ?></p>
+              </div>
+              <div class="col s6 l3">
+                <form class="center" method="post" action="php/queries/adminUser.php">
+                  <input type="hidden" name="email" value="<?php echo $user['email'];?>">
+                  <input type="hidden" name="admin" value="<?php echo $user['admin'];?>">
+                  <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="adminBtn">
+                    <?php if ($user['admin']==1){
+                      echo "Démettre Admin";
+                    } else {
+                      echo "Mettre Admin"; } ?>
+                  </button>
+                </form>
+              </div>
+              <div class="col s6 l3">
+                <form method="post" action="php/queries/deleteUser.php" class="center">
+                  <input type="hidden" name="id" value="<?php echo $user['email'];?>">
+                  <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="delete">Supprimer</button>
+                </form>
+              </div>
             </div>
-            <div class="col s6 l3">
-              <p><?php if ($user['admin']==1){
-                    echo "Administrateur : Oui";
-                  } else {
-                    echo "Administrateur : Non"; } ?></p>
-            </div>
-            <div class="col s6 l3">
-              <form class="center" method="post" action="php/queries/adminUser.php">
-                <input type="hidden" name="email" value="<?php echo $user['email'];?>">
-                <input type="hidden" name="admin" value="<?php echo $user['admin'];?>">
-                <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="adminBtn">
-                  <?php if ($user['admin']==1){
-                    echo "Démettre Admin";
-                  } else {
-                    echo "Mettre Admin"; } ?>
-                </button>
-              </form>
-            </div>
-            <div class="col s6 l3">
-              <form method="post" action="php/queries/deleteUser.php" class="center">
-                <input type="hidden" name="id" value="<?php echo $user['email'];?>">
-                <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="delete">Supprimer</button>
-              </form>
-            </div>
-          </div>
-        <?php } ?>
+          <?php } ?>
         </div>
       </li>
       
@@ -88,7 +88,7 @@
         <div class="collapsible-header main-color"><h2 class="center">Mails de la Page Contact</h2></div>
         <div class="collapsible-body main-color">
           <?php   
-          $sql = "Select * from contact";
+          $sql = "SELECT * from contact";
           $pre = $pdo->prepare($sql);
           $pre->execute();
           $contacts = $pre->fetchAll(); 
@@ -107,7 +107,11 @@
                 <h3>Réponse</h3>
                 <form method="post" action="php/queries/answer.php">
                     <textarea class="center" name="answer" cols="30" rows="10"></textarea> <br>
-                    <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer"/>
+                    <?php if($contact['answer'] == 0) { ?>
+                      <input class="inputBtn button-style" type="submit" name="sign" value="Envoyer"/>
+                    <?php } else { ?>
+                      <p>Réponse déjà envoyée</p>
+                    <?php } ?>
                 </form>
               </div>
             </div>
@@ -120,48 +124,48 @@
         <!-- GESTION DE MODIFICATION DE LA BOX DU MOIS -->
         <div class="collapsible-header main-color"><h2>Modification Box du Mois</h2></div>
         <div class="collapsible-body main-color">
-            <?php
-            $sql = "SELECT * FROM admin_gestion";
-            $pre = $pdo->prepare($sql);
-            $pre->execute();
-            $homedata = $pre->fetch(PDO::FETCH_ASSOC); ?>
+          <?php
+          $sql = "SELECT * FROM admin_gestion";
+          $pre = $pdo->prepare($sql);
+          $pre->execute();
+          $homedata = $pre->fetch(PDO::FETCH_ASSOC); ?>
 
-            <h3 class="center">Modifier la Page d'Acceuil</h3>
+          <h3 class="center">Modifier la Page d'Acceuil</h3>
 
-            <form class="input-field center" method="post" action="php/queries/homeEdit.php" enctype="multipart/form-data">
-                <h4>Nom de la box</h4>
-                <input name="theme_title" type="text" value="<?php echo $homedata['theme_title']?>"/>
-                <h4>Image de fond</h4>
-                <input type="file" name="bg_image"/><br>
-                <input class="inputBtn button-style" type="submit" value="Modifier">
+          <form class="input-field center" method="post" action="php/queries/homeEdit.php" enctype="multipart/form-data">
+              <h4>Nom de la box</h4>
+              <input name="theme_title" type="text" value="<?php echo $homedata['theme_title']?>"/>
+              <h4>Image de fond</h4>
+              <input type="file" name="bg_image"/><br>
+              <input class="inputBtn button-style" type="submit" value="Modifier">
+          </form>
+
+          <?php
+          $sql = "SELECT * FROM products";
+          $pre = $pdo->prepare($sql);
+          $pre->execute();
+          $productsdata = $pre->fetchAll(PDO::FETCH_ASSOC);
+          ?>
+
+          <h3 class="center">Modifier les Produits</h3>
+
+          <?php foreach($productsdata as $products){ ?>
+              
+            <form class="input-field center" method="post" action="php/queries/productEdit.php" enctype="multipart/form-data">
+              <h4>Produit <?php echo $products['id']; ?></h4>
+              <input type='hidden' name='id' value="<?php echo $products['id'] ?>" />
+              <h5>Nom</h5>
+              <input name="product_name" type="text" value="<?php echo $products['product_name']?>"/>
+              <h5>Description</h5>
+              <textarea class="center" name="product_desc" cols="30" rows="10"><?php echo $products['product_desc'] ?></textarea>
+              <h5>Image Acceuil</h5>
+              <input type="file" name="img"/>
+              <h5>Image Page Produit</h5>
+              <input type="file" name="img_2"/><br>
+              <input class="inputBtn button-style" type="submit" value="Modifier">
             </form>
 
-            <?php
-            $sql = "SELECT * FROM products";
-            $pre = $pdo->prepare($sql);
-            $pre->execute();
-            $productsdata = $pre->fetchAll(PDO::FETCH_ASSOC);
-            ?>
-
-            <h3 class="center">Modifier les Produits</h3>
-
-            <?php foreach($productsdata as $products){ ?>
-                
-              <form class="input-field center" method="post" action="php/queries/productEdit.php" enctype="multipart/form-data">
-                <h4>Produit <?php echo $products['id']; ?></h4>
-                <input type='hidden' name='id' value="<?php echo $products['id'] ?>" />
-                <h5>Nom</h5>
-                <input name="product_name" type="text" value="<?php echo $products['product_name']?>"/>
-                <h5>Description</h5>
-                <textarea class="center" name="product_desc" cols="30" rows="10"><?php echo $products['product_desc'] ?></textarea>
-                <h5>Image Acceuil</h5>
-                <input type="file" name="img"/>
-                <h5>Image Page Produit</h5>
-                <input type="file" name="img_2"/><br>
-                <input class="inputBtn button-style" type="submit" value="Modifier">
-              </form>
-
-            <?php } ?>
+          <?php } ?>
         </div>
       </li>
 
@@ -272,12 +276,40 @@
                 <p>Article 4 - Texte</p>
                 <textarea class="center" name="text_article4" cols="30" rows="15"><?php echo $element['text_article4'] ?></textarea>
                 <div>
-                  <button class="margin-top button-admin btn waves-effect waves-light button-style" type="submit" name="uptdate">Modifier</button>
+                  <input class="inputBtn button-style" type="submit" value="Modifier">
                 </div>
               </form>
             </div>
           </div>
         </div>
+      </li>
+      
+      <li>
+        <!-- Création/envoi de la newsletter -->
+        <div class="collapsible-header main-color"><h2 class="center">Newsletter</h2></div>
+        <div class="collapsible-body main-color">
+          <?php 
+            $sql = "SELECT * from newsletter";
+            $pre = $pdo->prepare($sql);
+            $pre->execute();
+            $newsletter = $pre->fetch(PDO::FETCH_ASSOC);
+          ?>
+          <h3 class="center">Modifier/Ajouter le contenu de la newsletter</h3>
+
+          <form class="input-field center" method="post" action="php/queries/newsletterEdit.php" enctype="multipart/form-data">
+              <h4>Objet/Sujet de la newsletter</h4>
+              <input name="newsletter_title" type="text" value="<?php echo $newsletter['newsletter_title']?>"/>
+              <h4>Contenu de la newsletter</h4>
+              <textarea class="center" name="text" cols="30" rows="10"><?php echo $newsletter['text'] ?></textarea><br />
+              <input class="inputBtn button-style" type="submit" value="Modifier">
+          </form>
+          <form class="input-field center" method="post" action="php/queries/newsletterSend.php" enctype="multipart/form-data">
+            <input name="newsletter_title" type="hidden" value="<?php echo $newsletter['newsletter_title']?>"/>
+            <input name="text" type="hidden" value="<?php echo $newsletter['text'] ?>"/>
+            <input class="inputBtn button-style" type="submit" value="Envoyer">
+          </form>
+        </div>
+        
       </li>
     </ul>
 

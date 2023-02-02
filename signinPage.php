@@ -86,10 +86,10 @@
       <div>&nbsp;</div>
 
       <div class="container cline"></div>
-        <p class="gcenter">OU</p>
+        <p class="center">OU</p>
           
       <div class="container">
-        <div class="row center">
+        <div class="row gcenter">
           <!-- BOUTON CONNEXION GOOGLE -->
           <div id="g_id_onload"
             data-client_id="696200199800-m2l2r3sfbnqgj5sdrpdauqanslk6e3ru.apps.googleusercontent.com"
@@ -138,9 +138,13 @@
           <div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
         </div>
 
-        <!-- BOUTON CONNEXION PAYPAL  
-          <div class="row">
+        <!-- ESPACEMENT ENTRE LES BOUTONS -->
+        <div>&nbsp;</div>
+
+        <!-- BOUTON CONNEXION PAYPAL --> 
+          <div class="row center">
             <span id='paypal'></span>
+            <script src='https://www.paypalobjects.com/js/external/api.js'></script>
             <script>
             paypal.use( ['login'], function (login) {
               login.render ({
@@ -152,13 +156,13 @@
                 "locale":"fr-fr",
                 "buttonType":"LWP",
                 "buttonShape":"pill",
-                "buttonSize":"lg",
+                "buttonSize":"md",
                 "fullPage":"true",
                 "returnurl":"http://localhost/Gamebox/signinPage.php"
               });
             });
             </script>
-          </div> -->
+          </div> 
       </div>
 
     <?php } require "php/components/footer.php"; ?>

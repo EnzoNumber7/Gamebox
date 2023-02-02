@@ -31,15 +31,16 @@ USE `grpa-5-gamebox`;
 DROP TABLE IF EXISTS `admin_gestion`;
 CREATE TABLE `admin_gestion` (
   `theme_title` varchar(100) NOT NULL,
-  `bg_image` text NOT NULL
+  `bg_image` text NOT NULL,
+  `maintenance` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `admin_gestion`
 --
 
-INSERT INTO `admin_gestion` (`theme_title`, `bg_image`) VALUES
-('Box Halloween', 'img/scorn.png');
+INSERT INTO `admin_gestion` (`theme_title`, `bg_image`,`maintenance`) VALUES
+('Box Halloween', 'img/scorn.png','0');
 
 -- --------------------------------------------------------
 
@@ -197,6 +198,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `newsletter` tinyint(1),
   `admin` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -204,11 +206,11 @@ CREATE TABLE `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`email`, `password`, `admin`) VALUES
-('anaelle', '11c1d6d37c1b85a93fa20f0255ea8bbd', 0),
-('root', '5db44b679bb4e67c3b1f1b900b9b9adc', 0),
-('steve@mc.donald', '809105a5a6b5591f43f143ed57fddec2', 0),
-('t', '5f8bdda8d653b377ab6523ca14225b50', 1);
+INSERT INTO `user` (`email`, `password`, `newsletter`,`admin`) VALUES
+('anaelle', '11c1d6d37c1b85a93fa20f0255ea8bbd', 0, 0),
+('root', '5db44b679bb4e67c3b1f1b900b9b9adc', 0, 0),
+('steve@mc.donald', '809105a5a6b5591f43f143ed57fddec2', 0, 0),
+('t', '5f8bdda8d653b377ab6523ca14225b50', 0, 1);
 
 --
 -- Index pour les tables exportées

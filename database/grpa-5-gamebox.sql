@@ -206,11 +206,11 @@ CREATE TABLE `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`email`, `password`, `admin`) VALUES
-('anaelle', '11c1d6d37c1b85a93fa20f0255ea8bbd', 0),
-('root', '5db44b679bb4e67c3b1f1b900b9b9adc', 0),
-('steve@mc.donald', '809105a5a6b5591f43f143ed57fddec2', 0),
-('t', '5f8bdda8d653b377ab6523ca14225b50', 1);
+INSERT INTO `user` (`email`, `password`, `newsletter`,`admin`) VALUES
+('anaelle', '11c1d6d37c1b85a93fa20f0255ea8bbd', 0, 0),
+('root', '5db44b679bb4e67c3b1f1b900b9b9adc', 0, 0),
+('steve@mc.donald', '809105a5a6b5591f43f143ed57fddec2', 0, 0),
+('t', '5f8bdda8d653b377ab6523ca14225b50', 0, 1);
 
 --
 -- Index pour les tables exportées

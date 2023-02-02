@@ -134,7 +134,7 @@
 
           <form class="input-field center" method="post" action="php/queries/homeEdit.php" enctype="multipart/form-data">
               <h4>Nom de la box</h4>
-              <input name="theme_title" type="text" value="<?php echo $homedata['theme_title']?>"/>
+              <input name="theme_title" class="center" type="text" value="<?php echo $homedata['theme_title']?>"/>
               <h4>Image de fond</h4>
               <input type="file" name="bg_image"/><br>
               <input class="inputBtn button-style" type="submit" value="Modifier">
@@ -155,7 +155,7 @@
               <h4>Produit <?php echo $products['id']; ?></h4>
               <input type='hidden' name='id' value="<?php echo $products['id'] ?>" />
               <h5>Nom</h5>
-              <input name="product_name" type="text" value="<?php echo $products['product_name']?>"/>
+              <input name="product_name" class="center" type="text" value="<?php echo $products['product_name']?>"/>
               <h5>Description</h5>
               <textarea class="center" name="product_desc" cols="30" rows="10"><?php echo $products['product_desc'] ?></textarea>
               <h5>Image Acceuil</h5>
@@ -298,7 +298,7 @@
 
           <form class="input-field center" method="post" action="php/queries/newsletterEdit.php" enctype="multipart/form-data">
               <h4>Objet/Sujet de la newsletter</h4>
-              <input name="newsletter_title" type="text" value="<?php echo $newsletter['newsletter_title']?>"/>
+              <input name="newsletter_title" class="center" type="text" value="<?php echo $newsletter['newsletter_title']?>"/>
               <h4>Contenu de la newsletter</h4>
               <textarea class="center" name="text" cols="30" rows="10"><?php echo $newsletter['text'] ?></textarea><br />
               <input class="inputBtn button-style" type="submit" value="Modifier">
